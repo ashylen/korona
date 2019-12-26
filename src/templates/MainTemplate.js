@@ -14,6 +14,13 @@ import SEO from 'components/seo';
 
 const StyledWrapper = styled.div`
   margin-top: 56px;
+  display: flex;
+  flex-flow: column;
+  min-height: calc(100vh - 56px);
+`;
+
+const StyledMain = styled.main`
+  flex-grow: 1;
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -24,9 +31,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    font-size: 1.6rem;
     margin: 0;
     padding:0;
     font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 
   *, *:after, *:before{
@@ -41,7 +52,7 @@ const MainTemplate = ({ children, isHomePage }) => {
       <Reset />
       <GlobalStyle />
       <Header isHomePage={isHomePage} />
-      <main>{children}</main>
+      <StyledMain>{children}</StyledMain>
       <Footer />
     </StyledWrapper>
   );

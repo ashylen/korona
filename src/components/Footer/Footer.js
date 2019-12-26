@@ -1,97 +1,116 @@
 import React from 'react';
 
 // Modules
-// import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
 
-// Components
-// import Button from '../../simple/Button/Button';
+// Utils
+import { phoneNumber, email } from 'utils/constants';
 
-const Footer = ({ siteTitle }) => {
+const StyledFooter = styled.footer`
+  background-color: #ffa922;
+  color: #343a40;
+`;
 
+// @TODO Make single component for logo
+const StyledGatsbyLink = styled(props => <Link {...props} />)`
+  display: flex;
+  padding: 20px 0;
+  font-size: 3rem;
+  text-decoration: none;
+  color: #fff;
+`;
+
+const StyledWrapper = styled.div`
+  max-width: 1440px;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+`;
+
+const StyledCopy = styled.div`
+  padding: 20px 0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  position: relative;
+  margin-top: 10px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      rgba(86, 86, 120, 0.1) 0,
+      rgba(86, 86, 120, 0.6) 50%,
+      rgba(86, 86, 120, 0.1) 100%
+    );
+  }
+`;
+
+const StyledContent = styled.div`
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  font-size: 2rem;
+  margin-bottom: 5px;
+`;
+
+const StyledItemHeading = styled.div`
+  font-weight: 600;
+`;
+
+const StyledItem = styled.div`
+  padding: 10px 0;
+`;
+
+const StyledLink = styled.a`
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 10px;
+  font-size: 2rem;
+`;
+
+const Footer = () => {
   return (
-    <footer id="footer" >
-      {/* <div className={styles.generalInfo}>
-        <section className={styles.section}>
-          Witryna stworzona przez:
-          <h3 className={styles.heading}>Polskie Towarzystwo Informatyków i Grafików</h3>
-          <div>
-            <a
-              className={styles.moreInfo}
-              href="https://ptig.pl"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Dowiedz się więcej
-            </a>
-          </div>
-        </section>
-        <section className={styles.section}>
-          <h3 className={styles.heading}>Kontakt</h3>
-          <div>
-            <p>Telefon</p>
-            <p>
-              <a href="tel:+48730369902">+48 730 369 902</a>
-            </p>
-            <p>Email</p>
-            <p>
-              <a href="mailto:ptigbiuro@gmail.com">ptigbiuro@gmail.com</a>
-            </p>
-          </div>
-          <ul className={styles.brands}>
-            <li className={styles.brand}>
-              <a href="https://www.facebook.com/ptigpl/" rel="noopener noreferrer" target="_blank">
-                <img src={facebook} alt="PtigFacebook" />
-              </a>
-            </li>
-            <li className={styles.brand}>
-              <a
-                href="https://www.youtube.com/channel/UC2NDhkD7CAMXYtFSeTr5BVg"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img src={yt} alt="PtigFacebook" />
-              </a>
-            </li>
-            <li className={styles.brand}>
-              <a href="https://g.page/ptigbc/review" rel="noopener noreferrer" target="_blank">
-                <img src={google} alt="PtigGoogle" />
-              </a>
-            </li>
-            <li className={styles.brand}>
-              <a href="http://gaming.ptig.pl" rel="noopener noreferrer" target="_blank">
-                <img src={gamepad} alt="PtigGaming" />
-              </a>
-            </li>
-          </ul>
-        </section>
-      </div>
-      <div className={styles.copy}>
-        <span>&copy; 2019 Polskie Towarzystwo Informatyków i Grafików</span>
-        <p className={styles.logo}>
-          <a href="https://ptig.pl" target="_blank" rel="noopener noreferrer">
-            <img src={logoPtig} alt="PTIG-LOGO" />
-          </a>
-        </p>
-      </div>
-      <div className={styles.loginButton}>
-        <Link to={routes.login}>Admin</Link>
-      </div>
-      {!!user && user.role && (user.role.name === 'Administrator' || user.role.name === 'Authenticated') && (
-        <div className={styles.logoutButton}>
-          <Button onClick={() => handleLogout()}>Wyloguj</Button>
+    <StyledFooter>
+      <StyledWrapper>
+        <StyledGatsbyLink to="/">KORONA</StyledGatsbyLink>
+        <div>
+          <StyledContent>
+            <StyledItemHeading>Adres</StyledItemHeading>
+            <StyledItem>Mickiewicza 7, 37-110 Żołynia</StyledItem>
+          </StyledContent>
+          <StyledContent>
+            <StyledItemHeading>Telefon</StyledItemHeading>
+            <StyledLink href={`tel:${phoneNumber}`}>
+              +48 {phoneNumber}
+            </StyledLink>
+          </StyledContent>
+          <StyledContent>
+            <StyledItemHeading>Email</StyledItemHeading>
+            <StyledLink href={`mailto:${email}`}>
+              {email}
+            </StyledLink>
+          </StyledContent>
         </div>
-      )} */}
-    </footer>
+
+        <StyledCopy>
+          <div>Korona - Pomoc Drogowa - Przemysław Pac</div>
+          <br/>
+          <div>©{new Date().getFullYear()} <a href="https://github.com/ashylen" target="_blank" rel="noopener noreferrer">Dominik Urban</a></div>
+        </StyledCopy>
+      </StyledWrapper>
+    </StyledFooter>
   );
-};
-
-Footer.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Footer.defaultProps = {
-  siteTitle: ``,
 };
 
 export default Footer;

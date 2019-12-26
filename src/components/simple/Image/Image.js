@@ -22,7 +22,7 @@ const Image = () => {
         relativePath: { eq: "Korona-Pomoc-Drogowa-Auto-Laweta-Zolynia.jpg" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 800) {
+          fluid(maxWidth: 1920) {
             ...GatsbyImageSharpFluid
           }
         }
