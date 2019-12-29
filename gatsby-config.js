@@ -20,6 +20,7 @@ module.exports = {
         components: path.join(__dirname, 'src/components'),
         pages: path.join(__dirname, 'src/pages'),
         templates: path.join(__dirname, 'src/templates'),
+        views: path.join(__dirname, 'src/views'),
         utils: path.join(__dirname, 'src/utils'),
         src: path.join(__dirname, 'src'),
       }

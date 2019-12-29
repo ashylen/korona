@@ -9,7 +9,7 @@ import React from 'react';
 // // Components
 // import HomeTemplate from 'templates/HomeTemplate';
 // import SEO from 'components/seo';
-// import SectionTitle from 'components/SectionTitle/SectionTitle';
+// import SectionTitle from 'components/simple/SectionTitle/SectionTitle';
 
 
 const ContactView = () => (

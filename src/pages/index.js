@@ -9,6 +9,7 @@ import HomeImage from 'components/simple/Image/Image';
 // Components
 import HomeTemplate from 'templates/HomeTemplate';
 import SEO from 'components/seo';
+import HelpView from 'views/HelpView';
 
 const slideIn = keyframes`
   0% {
@@ -33,7 +34,7 @@ const fadeIn = keyframes`
 const StyledTopWrapper = styled.div`
   position: relative;
   overflow: hidden;
-  background: rgba(255,169,34,0.85);
+  background: rgba(255, 169, 34, 0.85);
 `;
 
 const StyledSectionWrapper = styled.div`
@@ -49,13 +50,14 @@ const StyledSectionWrapper = styled.div`
   color: #fff;
 
   @media (max-width: 992px) {
-    position: static;
+    position: relative;
     top: 0;
     left: 0;
     transform: translate(0);
     padding: 20px 0;
   }
 `;
+
 
 const StyledSkew = styled.div`
   position: absolute;
@@ -72,7 +74,7 @@ const StyledSkew = styled.div`
   animation: ${slideIn} 1s;
 
   @media (max-width: 992px) {
-   display:none;
+    display: none;
   }
 `;
 
@@ -104,10 +106,9 @@ const StyledButton = styled.button`
 `;
 
 const StyledHomeImage = styled.div`
-
   @media (max-width: 992px) {
     max-height: 200px;
-    overflow:hidden;
+    overflow: hidden;
   }
 
   & > div:after {
@@ -142,6 +143,8 @@ const IndexPage = () => (
         <StyledButton>Kontakt</StyledButton>
       </StyledSectionWrapper>
     </StyledTopWrapper>
+    <HelpView/>
+
   </HomeTemplate>
 );
 

@@ -106,7 +106,9 @@ const Footer = () => {
         <StyledCopy>
           <div>Korona - Pomoc Drogowa - Przemysław Pac</div>
           <br/>
-          <div>©{new Date().getFullYear()} <a href="https://github.com/ashylen" target="_blank" rel="noopener noreferrer">Dominik Urban</a></div>
+          <div>Projekt strony: <a href="https://github.com/ashylen" target="_blank" rel="noopener noreferrer">Dominik Urban</a></div>
+          <br/>
+          <div>©{new Date().getFullYear()}</div>
         </StyledCopy>
       </StyledWrapper>
     </StyledFooter>
