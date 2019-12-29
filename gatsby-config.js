@@ -14,6 +14,12 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-styled-components',
+      options: {
+        displayName: true,
+      }
+    },
+    {
       resolve: 'gatsby-plugin-root-import',
       options: {
         assets: path.join(__dirname, 'src/assets'),

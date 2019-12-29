@@ -9,7 +9,7 @@ import { Link } from 'gatsby';
 
 const StyledWrapper = styled.nav`
   background-color: ${({ isHomePage }) =>
-    isHomePage ? '#343a40' : 'rgba(0,0,0,0.9)'};
+    isHomePage ? '#343a40' : '#343a40'};
   position: fixed;
   top: 0;
   left: 0;
