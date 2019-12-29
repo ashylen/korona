@@ -14,7 +14,7 @@ const StyledWrapper = styled.nav`
   top: 0;
   left: 0;
   right: 0;
-
+  box-shadow: 0 5px 16px rgba(6, 8, 8, 0.38);
   z-index: 100;
 `;
 

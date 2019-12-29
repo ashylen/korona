@@ -87,12 +87,16 @@ const StyledLink = styled.a`
   font-size: 2rem;
 `;
 
+const StyledContactWrapper = styled.div`
+  width: 100%;
+`;
+
 const Footer = () => {
   return (
     <StyledFooter>
       <StyledWrapper>
         <StyledGatsbyLink to="/">KORONA</StyledGatsbyLink>
-        <div>
+        <StyledContactWrapper>
           <StyledContent>
             <StyledItemHeading>Adres</StyledItemHeading>
             <StyledItem>Mickiewicza 7, 37-110 Żołynia</StyledItem>
@@ -109,7 +113,7 @@ const Footer = () => {
               {email}
             </StyledLink>
           </StyledContent>
-        </div>
+        </StyledContactWrapper>
 
         <StyledCopy>
           <div>Korona - Pomoc Drogowa - Przemysław Pac</div>
