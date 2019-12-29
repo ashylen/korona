@@ -46,8 +46,11 @@ const StyledSectionWrapper = styled.div`
   margin: auto;
   position: absolute;
   z-index: 2;
-  animation: ${fadeIn} 0.4s 0.6s both;
   color: #fff;
+
+  @media (min-width: 992px) {
+    animation: ${fadeIn} 0.4s 0.6s both;
+  }
 
   @media (max-width: 992px) {
     position: relative;
@@ -57,7 +60,6 @@ const StyledSectionWrapper = styled.div`
     padding: 20px 0;
   }
 `;
-
 
 const StyledSkew = styled.div`
   position: absolute;
@@ -71,7 +73,9 @@ const StyledSkew = styled.div`
   right: 40%;
   z-index: 1;
 
-  animation: ${slideIn} 1s;
+  @media (min-width: 992px) {
+    animation: ${slideIn} 1s;
+  }
 
   @media (max-width: 992px) {
     display: none;
@@ -143,8 +147,7 @@ const IndexPage = () => (
         <StyledButton>Kontakt</StyledButton>
       </StyledSectionWrapper>
     </StyledTopWrapper>
-    <HelpView/>
-
+    <HelpView />
   </HomeTemplate>
 );
 
