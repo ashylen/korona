@@ -45,7 +45,9 @@ const StyledLink = styled.a`
   text-align: center;
   padding: 15px;
   font-size: 2.5rem;
-  border: 2px solid #ffa922;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #ffac2a;
   background-color: #343a40;
   border-radius: 50px;
   box-shadow: 0 0 0 0 rgba(174, 178, 178, 0.8);

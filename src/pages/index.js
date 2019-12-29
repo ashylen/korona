@@ -13,7 +13,7 @@ import HelpView from 'views/HelpView';
 
 const slideIn = keyframes`
   0% {
-    transform: translateX(-100%) rotate(-31deg);
+    transform: translateX(600%) rotate(-31deg);
   }
 
   100% {
@@ -35,6 +35,12 @@ const StyledTopWrapper = styled.div`
   position: relative;
   overflow: hidden;
   background: rgba(255, 169, 34, 0.85);
+  color: #fff;
+
+
+  @media (max-width: 992px) {
+    background: #ffac2a;
+  }
 `;
 
 const StyledSectionWrapper = styled.div`
@@ -46,18 +52,13 @@ const StyledSectionWrapper = styled.div`
   margin: auto;
   position: absolute;
   z-index: 2;
-  color: #fff;
 
   @media (min-width: 992px) {
     animation: ${fadeIn} 0.4s 0.6s both;
   }
 
   @media (max-width: 992px) {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: translate(0);
-    padding: 20px 0;
+  margin:20px auto;
   }
 `;
 
@@ -72,13 +73,13 @@ const StyledSkew = styled.div`
   height: 200%;
   right: 40%;
   z-index: 1;
-
-  @media (min-width: 992px) {
     animation: ${slideIn} 1s;
-  }
+
 
   @media (max-width: 992px) {
-    display: none;
+    background: rgba(255, 169, 34, 0.7);
+    right: -90%;
+    height: 2000%;
   }
 `;
 
@@ -86,6 +87,10 @@ const StyledH1 = styled.h1`
   font-weight: 600;
   font-size: 4rem;
   margin-bottom: 15px;
+
+  @media (max-width: 992px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const StyledDesc = styled.p`
@@ -95,6 +100,7 @@ const StyledDesc = styled.p`
 
   @media (max-width: 992px) {
     max-width: unset;
+    font-size: 1.8rem;
   }
 `;
 
@@ -111,8 +117,11 @@ const StyledButton = styled.button`
 
 const StyledHomeImage = styled.div`
   @media (max-width: 992px) {
-    max-height: 200px;
     overflow: hidden;
+  }
+
+  & > div {
+    min-height: 500px;
   }
 
   & > div:after {

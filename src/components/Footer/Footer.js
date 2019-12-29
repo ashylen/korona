@@ -8,7 +8,7 @@ import { Link } from 'gatsby';
 import { phoneNumber, email } from 'utils/constants';
 
 const StyledFooter = styled.footer`
-  background-color: #ffa922;
+  background-color: #ffac2a;
   color: #343a40;
 `;
 
@@ -38,6 +38,10 @@ const StyledCopy = styled.div`
   position: relative;
   margin-top: 10px;
 
+  @media (max-width: 550px) {
+    align-items: flex-start;
+  }
+
   &:before {
     content: '';
     position: absolute;
@@ -61,6 +65,10 @@ const StyledContent = styled.div`
   align-items: center;
   font-size: 2rem;
   margin-bottom: 5px;
+
+  @media (max-width: 550px) {
+    align-items: flex-start;
+  }
 `;
 
 const StyledItemHeading = styled.div`
@@ -75,7 +83,7 @@ const StyledLink = styled.a`
   text-decoration: none;
   color: inherit;
   text-align: center;
-  padding: 10px;
+  padding: 10px 0;
   font-size: 2rem;
 `;
 
@@ -106,7 +114,7 @@ const Footer = () => {
         <StyledCopy>
           <div>Korona - Pomoc Drogowa - Przemysław Pac</div>
           <br/>
-          <div>Projekt strony: <a href="https://github.com/ashylen" target="_blank" rel="noopener noreferrer">Dominik Urban</a></div>
+          <div>Wykonanie strony: <a href="https://github.com/ashylen" target="_blank" rel="noopener noreferrer">Dominik Urban</a></div>
           <br/>
           <div>©{new Date().getFullYear()}</div>
         </StyledCopy>

@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const StyledH2 = styled.h2`
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin: 10px auto 15px;
   line-height: 1.2;
 `;
@@ -33,7 +33,7 @@ const StyledWrapper = styled.div`
     position: absolute;
     width: 30%;
     height: 1px;
-    background: #ffa922;
+    background: #ffac2a;
   }
 
   &:hover {
