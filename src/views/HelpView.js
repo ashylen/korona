@@ -6,8 +6,6 @@ import {
   faCarCrash,
   faSnowplow,
   faShuttleVan,
-  faPhone,
-  faDollarSign,
   faUserPlus,
   faGasPump,
   faWrench,
@@ -40,8 +38,10 @@ const StyledSectionInfoInner = styled.div`
 const StyledH1 = styled.h1`
   font-weight: 600;
   font-size: 2.5rem;
-  margin: auto;
   padding: 20px 0;
+  max-width: 1440px;
+  width: 90%;
+  margin: auto;
   margin-bottom: 20px;
 `;
 
@@ -83,8 +83,6 @@ const HelpPage = () => (
         Transport maszyn budowlanych, skuterów, quadów, wózków widłowych,
         konstrukcji oraz towarów
       </InfoBox>
-      {/* <InfoBox icon={faPhone}>Kontakt 24/7</InfoBox>
-      <InfoBox icon={faDollarSign}>Konkurencyjne ceny</InfoBox> */}
     </StyledSectionInfoInner>
   </StyledSectionInfo>
 );

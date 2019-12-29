@@ -37,7 +37,6 @@ const StyledTopWrapper = styled.div`
   background: rgba(255, 169, 34, 0.85);
   color: #fff;
 
-
   @media (max-width: 992px) {
     background: #ffac2a;
   }
@@ -58,7 +57,7 @@ const StyledSectionWrapper = styled.div`
   }
 
   @media (max-width: 992px) {
-  margin:20px auto;
+    margin: 20px auto;
   }
 `;
 
@@ -73,8 +72,7 @@ const StyledSkew = styled.div`
   height: 200%;
   right: 40%;
   z-index: 1;
-    animation: ${slideIn} 1s;
-
+  animation: ${slideIn} 1s;
 
   @media (max-width: 992px) {
     background: rgba(255, 169, 34, 0.7);
@@ -137,7 +135,7 @@ const StyledHomeImage = styled.div`
 
 const IndexPage = () => (
   <HomeTemplate>
-    <SEO title="Home" />
+    <SEO title="Strona główna" />
     <StyledTopWrapper>
       <StyledSkew />
       <StyledHomeImage>
@@ -147,11 +145,10 @@ const IndexPage = () => (
         <StyledH1>KORONA</StyledH1>
         <StyledH1>Pomoc Drogowa</StyledH1>
         <StyledDesc>
-          Jesteśmy firmą zajmującą się transportem aut na terenie całej Polski
+          Jesteśmy firmą zajmującą się pomocą drogową na terenie całej Polski
           oraz UE. Dysponujemy profesjonalnym sprzętem oraz wykwalifikowaną
-          kadrą kierowców. Mamy 10 lat doświadczeń w zakresie transportu -
-          holowania aut z trasy czy to po kolizji czy z awarią, zakupów
-          zleconych wraz z oględzinami aut.
+          kadrą kierowców. Mamy doświadczenie w holowaniu aut z trasy bądź z
+          kolizji.
         </StyledDesc>
         <StyledButton>Kontakt</StyledButton>
       </StyledSectionWrapper>

@@ -7,7 +7,7 @@ import styled from 'styled-components';
 const StyledH1 = styled.h1`
   text-align: center;
   font-size: 3rem;
-  margin: 10px auto;
+  margin: 30px auto 10px;
 `;
 
 const SectionTitle = ({ children }) => {

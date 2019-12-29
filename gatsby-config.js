@@ -11,13 +11,23 @@ module.exports = {
       resolve: 'babel-plugin-styled-components',
       options: {
         displayName: true,
-      }
+      },
     },
     {
       resolve: 'gatsby-plugin-styled-components',
       options: {
         displayName: true,
-      }
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Montserrat`,
+          `sans serif:300,600`, // you can also specify font weights and styles
+        ],
+        display: 'swap',
+      },
     },
     {
       resolve: 'gatsby-plugin-root-import',
@@ -29,7 +39,7 @@ module.exports = {
         views: path.join(__dirname, 'src/views'),
         utils: path.join(__dirname, 'src/utils'),
         src: path.join(__dirname, 'src'),
-      }
+      },
     },
     {
       resolve: 'gatsby-plugin-eslint',
@@ -39,14 +49,14 @@ module.exports = {
         options: {
           emitWarning: true,
           failOnError: false,
-        }
-      }
+        },
+      },
     },
     {
       resolve: 'gatsby-plugin-stylelint',
       options: {
         files: ['**/*.js'],
-      }
+      },
     },
     `gatsby-plugin-react-helmet`,
     {
@@ -74,4 +84,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

@@ -8,8 +8,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
 const StyledWrapper = styled.nav`
-  background-color: ${({ isHomePage }) =>
-    isHomePage ? '#343a40' : '#343a40'};
+  background-color: ${({ isHomePage }) => (isHomePage ? '#343a40' : '#343a40')};
   position: fixed;
   top: 0;
   left: 0;
@@ -29,9 +28,32 @@ const StyledInner = styled.div`
 
 const StyledLink = styled(props => <Link {...props} />)`
   display: flex;
-  padding: 20px 8px;
+  padding: 20px 0;
+  margin: 0 8px;
   text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
   color: #fff;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: transparent;
+    bottom: 0;
+    left: 0;
+    transition: background-color 0.3s;
+  }
+
+  &:hover,
+  &.active {
+    color: #ffac2a;
+
+    &:after {
+      background: #ffac2a;
+    }
+  }
 `;
 
 const StyledLogo = styled.div`
@@ -56,9 +78,15 @@ const Nav = ({ isHomePage }) => {
           <StyledLink to="/">KORONA</StyledLink>
         </StyledLogo>
         <StyledPages>
-          <StyledLink to="/kontakt/">Kontakt</StyledLink>
-          <StyledLink to="/oferta/">Oferta</StyledLink>
-          <StyledLink to="/cennik/">Cennik</StyledLink>
+          <StyledLink activeClassName="active" to="/kontakt/">
+            Kontakt
+          </StyledLink>
+          <StyledLink activeClassName="active" to="/oferta/">
+            Oferta
+          </StyledLink>
+          <StyledLink activeClassName="active" to="/cennik/">
+            Cennik
+          </StyledLink>
         </StyledPages>
       </StyledInner>
     </StyledWrapper>
