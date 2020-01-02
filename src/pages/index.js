@@ -10,10 +10,11 @@ import HomeImage from 'components/simple/Image/Image';
 import HomeTemplate from 'templates/HomeTemplate';
 import SEO from 'components/seo';
 import HelpView from 'views/HelpView';
+import Button from 'components/simple/Button/Button';
 
 const slideIn = keyframes`
   0% {
-    transform: translateX(600%) rotate(-31deg);
+    transform: translateX(-100%) rotate(-31deg);
   }
 
   100% {
@@ -102,17 +103,6 @@ const StyledDesc = styled.p`
   }
 `;
 
-const StyledButton = styled.button`
-  background-color: transparent;
-  border: 2px solid #fff;
-  padding: 10px 20px;
-  font-family: inherit;
-  color: inherit;
-  font-size: 2rem;
-  margin: 20px 0 0;
-  cursor: pointer;
-`;
-
 const StyledHomeImage = styled.div`
   @media (max-width: 992px) {
     overflow: hidden;
@@ -150,10 +140,10 @@ const IndexPage = () => (
           kadrą kierowców. Mamy doświadczenie w holowaniu aut z trasy bądź z
           kolizji.
         </StyledDesc>
-        <StyledButton>Kontakt</StyledButton>
+        <Button>Kontakt</Button>
       </StyledSectionWrapper>
     </StyledTopWrapper>
-    <HelpView />
+    <HelpView title="W czym możemy pomóc?" />
   </HomeTemplate>
 );
 

@@ -109,17 +109,25 @@ const Footer = () => {
           </StyledContent>
           <StyledContent>
             <StyledItemHeading>Email</StyledItemHeading>
-            <StyledLink href={`mailto:${email}`}>
-              {email}
-            </StyledLink>
+            <StyledLink href={`mailto:${email}`}>{email}</StyledLink>
           </StyledContent>
         </StyledContactWrapper>
 
         <StyledCopy>
           <div>Korona - Pomoc Drogowa - Przemysław Pac</div>
-          <br/>
-          <div>Wykonanie strony: <a href="https://github.com/ashylen" target="_blank" rel="noopener noreferrer">Dominik Urban</a></div>
-          <br/>
+          <br />
+          <div>
+            Wykonanie strony:{' '}
+            <a
+              title="dominik.urban.mail@gmail.com"
+              href="mailto:dominik.urban.mail@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Dominik Urban
+            </a>
+          </div>
+          <br />
           <div>©{new Date().getFullYear()}</div>
         </StyledCopy>
       </StyledWrapper>

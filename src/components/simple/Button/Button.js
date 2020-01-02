@@ -1,30 +1,14 @@
-
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  text-decoration: none;
-  padding: 0;
-  /* background-color: ${({ activecolor, theme }) => theme[activecolor]}; */
-  background-color: #fff;
-  width: 220px;
-  height: 47px;
-  border: none;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 16px;
-  text-transform: uppercase;
-  ${({ secondary }) =>
-    secondary &&
-    css`
-      background-color: hsl(0, 0%, 90%);
-      width: 105px;
-      height: 30px;
-      font-size: 10px;
-    `}
+  background-color: transparent;
+  border: 2px solid #fff;
+  padding: 10px 20px;
+  font-family: inherit;
+  color: inherit;
+  font-size: 2rem;
+  margin: 20px 0 0;
+  cursor: pointer;
 `;
 
 export default Button;

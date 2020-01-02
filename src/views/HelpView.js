@@ -2,6 +2,7 @@ import React from 'react';
 
 // Modules
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import {
   faCarCrash,
   faSnowplow,
@@ -31,8 +32,8 @@ const StyledSectionInfoInner = styled.div`
   width: 90%;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 35px 15px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 35px 25px;
 `;
 
 const StyledH1 = styled.h1`
@@ -49,10 +50,10 @@ const StyledHeaderWrapper = styled.div`
   text-align: center;
 `;
 
-const HelpPage = () => (
+const HelpPage = ({ title }) => (
   <StyledSectionInfo>
     <StyledHeaderWrapper>
-      <StyledH1>W czym możemy pomóc?</StyledH1>
+      {title && <StyledH1>{title}</StyledH1>}
     </StyledHeaderWrapper>
     <StyledSectionInfoInner>
       <InfoBox icon={faShuttleVan}>Pomoc Drogowa samochodem 7-osobowym</InfoBox>
@@ -86,5 +87,13 @@ const HelpPage = () => (
     </StyledSectionInfoInner>
   </StyledSectionInfo>
 );
+
+HelpPage.defaultProps = {
+  title: '',
+};
+
+HelpPage.propTypes = {
+  title: PropTypes.string,
+};
 
 export default HelpPage;
