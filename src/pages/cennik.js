@@ -49,14 +49,22 @@ const StyledSectionWrapper = styled.section`
 `;
 
 const StyledPriceImage = styled.div`
-  width: 50%;
+  width: 30%;
+
+  @media (max-width: 550px) {
+    width: auto;
+  }
 `;
 
 const StyledTextSide = styled.article`
   line-height: 1.3;
   font-size: 2.2rem;
-  width: 50%;
+  width: 70%;
   padding-right: 20px;
+
+  @media (max-width: 992px) {
+    width: auto;
+  }
 `;
 
 const StyledFormLink = styled(props => <Link {...props} />)`
@@ -67,7 +75,7 @@ const StyledFormLink = styled(props => <Link {...props} />)`
   color: #ffac2a;
   border: 2px solid #ffac2a;
   cursor: pointer;
-  margin: 10px 0;
+  margin: 20px 0;
   transition: transform 0.3s, color 0.3s, border-color 0.3s;
 
   &:hover {
@@ -85,7 +93,7 @@ const StyledPhoneLink = styled.a`
   color: #ffac2a;
   border: 2px solid #ffac2a;
   cursor: pointer;
-  margin: 10px 0;
+  margin: 20px 0;
   transition: transform 0.3s, color 0.3s, border-color 0.3s;
 
   &:hover {
@@ -95,39 +103,46 @@ const StyledPhoneLink = styled.a`
   }
 `;
 
-const PricingPage = () => (
-  <MainTemplate>
-    <SEO title="Cennik" />
-    <SectionTitle>
-      Cennik <br />
-      <br /> Pomoc Drogowa - Rzeszów - Holowanie 24h
-    </SectionTitle>
-    <StyledArticleWrapper>
-      <StyledSectionWrapper>
-        <StyledTextSide>
-          <p>
-            Ceny usług uzależnione są od kilku głównych czynników między innymi:
-            samochodu, rodzaju uszkodzenia, położenia, odległości, możliwości
-            wystąpienia nieprzewidzianych sytuacji podczas wciągania samochodu
-            na lawetę oraz czasu jaki jest potrzebny na prawidłowe załadowanie i
-            zabezpieczenie auta bądź innego towaru. Mając na uwadze powyższe
-            czynniki, cenę ustalamy indywidualnie, dostosowując do potrzeb osób
-            zamawiających holowanie lub przewóz innych rzeczy.
-          </p>
-          <StyledPhoneLink href={`tel:${phoneNumber}`}>
-            Zadzwoń do nas
-          </StyledPhoneLink>
-          <div>lub</div>
-          <StyledFormLink to="/kontakt/">
-            Przejdź do formularza kontaktowego
-          </StyledFormLink>
-        </StyledTextSide>
-        <StyledPriceImage>
-          <PriceImage />
-        </StyledPriceImage>
-      </StyledSectionWrapper>
-    </StyledArticleWrapper>
-  </MainTemplate>
-);
+const PricingPage = () => {
+  const isMobile = window.innerWidth < 992;
+
+  return (
+    <MainTemplate>
+      <SEO title="Cennik" />
+      <SectionTitle>
+        Cennik <br />
+        <br /> Pomoc Drogowa - Rzeszów - Holowanie 24h
+      </SectionTitle>
+      <StyledArticleWrapper>
+        <StyledSectionWrapper>
+          <StyledTextSide>
+            <p>
+              Ceny usług uzależnione są od kilku głównych czynników między
+              innymi: samochodu, rodzaju uszkodzenia, położenia, odległości,
+              możliwości wystąpienia nieprzewidzianych sytuacji podczas
+              wciągania samochodu na lawetę oraz czasu jaki jest potrzebny na
+              prawidłowe załadowanie i zabezpieczenie auta bądź innego towaru.
+              Mając na uwadze powyższe czynniki, cenę ustalamy indywidualnie,
+              dostosowując do potrzeb osób zamawiających holowanie lub przewóz
+              innych rzeczy.
+            </p>
+            <StyledPhoneLink href={`tel:${phoneNumber}`}>
+              Zadzwoń do nas
+            </StyledPhoneLink>
+            <div>lub</div>
+            <StyledFormLink to="/kontakt/">
+              Przejdź do formularza kontaktowego
+            </StyledFormLink>
+          </StyledTextSide>
+          {!isMobile && (
+            <StyledPriceImage>
+              <PriceImage />
+            </StyledPriceImage>
+          )}
+        </StyledSectionWrapper>
+      </StyledArticleWrapper>
+    </MainTemplate>
+  );
+};
 
 export default PricingPage;

@@ -3,6 +3,8 @@ import React from 'react';
 // Modules
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
 // Utils
 import { phoneNumber, email } from 'utils/constants';
@@ -83,8 +85,17 @@ const StyledLink = styled.a`
   text-decoration: none;
   color: inherit;
   text-align: center;
-  padding: 10px 0;
-  font-size: 2rem;
+  padding: ${({ icon }) => (icon ? '10px' : '10px 0')};
+  transition: color 0.3s, transform 0.3s, opacity 0.3s;
+  will-change: color;
+  font-size: ${({ icon }) => (icon ? '4rem' : '2rem')};
+
+  &:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    color: ${({ icon }) => (icon ? '#fff' : 'inherit')};
+    transform: translateY(-2px);
+  }
 `;
 
 const StyledContactWrapper = styled.div`
@@ -110,6 +121,19 @@ const Footer = () => {
           <StyledContent>
             <StyledItemHeading>Email</StyledItemHeading>
             <StyledLink href={`mailto:${email}`}>{email}</StyledLink>
+          </StyledContent>
+          <StyledContent>
+            <div>
+              <StyledLink icon href="https://goo.gl/maps/ng5NhnWPJ3upiuef8">
+                <FontAwesomeIcon icon={faGoogle} />
+              </StyledLink>
+              <StyledLink
+                icon
+                href="https://www.facebook.com/Pomoc-Drogowa-Korona-100327174801068/"
+              >
+                <FontAwesomeIcon icon={faFacebookF} />
+              </StyledLink>
+            </div>
           </StyledContent>
         </StyledContactWrapper>
 

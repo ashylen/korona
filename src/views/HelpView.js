@@ -50,7 +50,7 @@ const StyledHeaderWrapper = styled.div`
   text-align: center;
 `;
 
-const HelpPage = ({ title }) => (
+const HelpView = ({ title }) => (
   <StyledSectionInfo>
     <StyledHeaderWrapper>
       {title && <StyledH1>{title}</StyledH1>}
@@ -88,12 +88,12 @@ const HelpPage = ({ title }) => (
   </StyledSectionInfo>
 );
 
-HelpPage.defaultProps = {
+HelpView.defaultProps = {
   title: '',
 };
 
-HelpPage.propTypes = {
+HelpView.propTypes = {
   title: PropTypes.string,
 };
 
-export default HelpPage;
+export default HelpView;

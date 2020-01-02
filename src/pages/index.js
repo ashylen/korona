@@ -9,7 +9,6 @@ import HomeImage from 'components/simple/Image/Image';
 // Components
 import HomeTemplate from 'templates/HomeTemplate';
 import SEO from 'components/seo';
-import HelpView from 'views/HelpView';
 import Button from 'components/simple/Button/Button';
 
 const slideIn = keyframes`
@@ -132,8 +131,9 @@ const IndexPage = () => (
         <HomeImage />
       </StyledHomeImage>
       <StyledSectionWrapper>
-        <StyledH1>KORONA</StyledH1>
-        <StyledH1>Pomoc Drogowa</StyledH1>
+        <StyledH1>
+          KORONA <br /> Pomoc Drogowa
+        </StyledH1>
         <StyledDesc>
           Jesteśmy firmą zajmującą się pomocą drogową na terenie całej Polski
           oraz UE. Dysponujemy profesjonalnym sprzętem oraz wykwalifikowaną
@@ -143,7 +143,6 @@ const IndexPage = () => (
         <Button>Kontakt</Button>
       </StyledSectionWrapper>
     </StyledTopWrapper>
-    <HelpView title="W czym możemy pomóc?" />
   </HomeTemplate>
 );
 
