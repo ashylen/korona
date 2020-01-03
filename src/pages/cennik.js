@@ -104,7 +104,7 @@ const StyledPhoneLink = styled.a`
 `;
 
 const PricingPage = () => {
-  const isMobile = window.innerWidth < 992;
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
 
   return (
     <MainTemplate>
