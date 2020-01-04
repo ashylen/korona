@@ -193,12 +193,13 @@ const StyledH2 = styled.h2`
   }
 `;
 
-const StyledPhoneMain = styled.div`
+const StyledPhoneMain = styled.a`
   text-decoration: none;
   padding: 10px 0;
   margin: 5px 0 15px;
   color: #f9e242;
   font-size: 6vw;
+  display: block;
 
   @media (max-width: 992px) {
     font-size: 10vw;
