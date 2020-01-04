@@ -33,7 +33,7 @@ const StyledWrapper = styled.div`
     position: absolute;
     width: 30%;
     height: 1px;
-    background: #ffac2a;
+    background: #f9e242;
   }
 
   &:hover {

@@ -58,7 +58,7 @@ const StyledPriceImage = styled.div`
 
 const StyledTextSide = styled.article`
   line-height: 1.3;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   width: 70%;
   padding-right: 20px;
 
@@ -72,8 +72,8 @@ const StyledFormLink = styled(props => <Link {...props} />)`
   padding: 20px;
   text-decoration: none;
   position: relative;
-  color: #ffac2a;
-  border: 2px solid #ffac2a;
+  color: #f9e242;
+  border: 2px solid #f9e242;
   cursor: pointer;
   margin: 20px 0;
   transition: transform 0.3s, color 0.3s, border-color 0.3s;
@@ -90,8 +90,8 @@ const StyledPhoneLink = styled.a`
   padding: 20px;
   text-decoration: none;
   position: relative;
-  color: #ffac2a;
-  border: 2px solid #ffac2a;
+  color: #f9e242;
+  border: 2px solid #f9e242;
   cursor: pointer;
   margin: 20px 0;
   transition: transform 0.3s, color 0.3s, border-color 0.3s;
@@ -109,10 +109,7 @@ const PricingPage = () => {
   return (
     <MainTemplate>
       <SEO title="Cennik" />
-      <SectionTitle>
-        Cennik <br />
-        <br /> Pomoc Drogowa - Rzeszów - Holowanie 24h
-      </SectionTitle>
+      <SectionTitle>Cennik</SectionTitle>
       <StyledArticleWrapper>
         <StyledSectionWrapper>
           <StyledTextSide>

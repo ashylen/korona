@@ -13,7 +13,7 @@ import Footer from 'components/Footer/Footer';
 import SEO from 'components/seo';
 
 const StyledWrapper = styled.div`
-  margin-top: 93px;
+  margin-top: 54px;
   display: flex;
   flex-flow: column;
   min-height: calc(100vh - 56px);

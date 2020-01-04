@@ -4,14 +4,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle, faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
 // Utils
 import { phoneNumber, email } from 'utils/constants';
 
 const StyledFooter = styled.footer`
-  background-color: #ffac2a;
-  color: #343a40;
+  background-color: #222;
+  color: #fff;
 `;
 
 // @TODO Make single component for logo
@@ -20,7 +20,7 @@ const StyledGatsbyLink = styled(props => <Link {...props} />)`
   padding: 20px 0;
   font-size: 3rem;
   text-decoration: none;
-  color: #fff;
+  color: #f9e242;
 `;
 
 const StyledWrapper = styled.div`
@@ -106,7 +106,7 @@ const Footer = () => {
   return (
     <StyledFooter>
       <StyledWrapper>
-        <StyledGatsbyLink to="/">KORONA</StyledGatsbyLink>
+        <StyledGatsbyLink to="/">LOGO</StyledGatsbyLink>
         <StyledContactWrapper>
           <StyledContent>
             <StyledItemHeading>Adres</StyledItemHeading>
@@ -125,7 +125,7 @@ const Footer = () => {
           <StyledContent>
             <div>
               <StyledLink icon href="https://goo.gl/maps/ng5NhnWPJ3upiuef8">
-                <FontAwesomeIcon icon={faGoogle} />
+                <FontAwesomeIcon icon={faInstagram} />
               </StyledLink>
               <StyledLink
                 icon
@@ -138,7 +138,7 @@ const Footer = () => {
         </StyledContactWrapper>
 
         <StyledCopy>
-          <div>Korona - Pomoc Drogowa - Przemysław Pac</div>
+          <div>© Korona - Pomoc Drogowa - Przemysław Pac</div>
           <br />
           <div>
             Wykonanie strony:{' '}
@@ -152,7 +152,7 @@ const Footer = () => {
             </a>
           </div>
           <br />
-          <div>©{new Date().getFullYear()}</div>
+          <div>{new Date().getFullYear()}</div>
         </StyledCopy>
       </StyledWrapper>
     </StyledFooter>

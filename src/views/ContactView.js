@@ -25,7 +25,7 @@ const handleSubmit = (values, { setSubmitting }) => {
   }, 400);
 };
 
-const StyledInput = styled.input`
+const StyledInput = styled(Field)`
   padding: 10px;
   margin: 0;
   border: 1px solid #d1d1d1;
@@ -35,7 +35,7 @@ const ContactView = () => (
   <StyledSectionInfo>
     <StyledFormWrapper>
       <Formik
-        initialValues={{ email: '', password: '' }}
+        initialValues={{ email: '' }}
         validate={values => {
           const errors = {};
           if (!values.email) {
@@ -66,6 +66,7 @@ const ContactView = () => (
                   Email
                   <StyledInput type="email" name="email" />
                 </label>
+
                 <ErrorMessage name="email" component="div" />
               </div>
               <div>

@@ -8,6 +8,8 @@ const StyledH1 = styled.h1`
   text-align: center;
   font-size: 3rem;
   margin: 30px auto 10px;
+  width: 90%;
+  max-width: 1440px;
 `;
 
 const SectionTitle = ({ children }) => {

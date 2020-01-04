@@ -5,14 +5,14 @@ import styled from 'styled-components';
 // import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
 // Utils
-import { phoneNumber } from 'utils/constants';
+// import { phoneNumber } from 'utils/constants';
 
 const StyledWrapper = styled.nav`
-  background-color: ${({ isHomePage }) => (isHomePage ? '#343a40' : '#343a40')};
+  background-color: ${({ isHomePage }) => (isHomePage ? '#222' : '#222')};
   position: fixed;
   top: 0;
   left: 0;
@@ -35,7 +35,7 @@ const StyledInner = styled.div`
 const StyledLogoLink = styled(props => <Link {...props} />)`
   display: flex;
   padding: 20px 0;
-  margin: 0 8px;
+  margin: 0 8px 0 0;
   text-decoration: none;
   position: relative;
   transition: color 0.3s;
@@ -54,10 +54,10 @@ const StyledLogoLink = styled(props => <Link {...props} />)`
 
   &:hover,
   &.active {
-    color: #ffac2a;
+    color: #f9e242;
 
     &:after {
-      background: #ffac2a;
+      background: #f9e242;
     }
   }
 `;
@@ -84,10 +84,10 @@ const StyledLink = styled(props => <Link {...props} />)`
 
   &:hover,
   &.active {
-    color: #ffac2a;
+    color: #f9e242;
 
     &:after {
-      background: #ffac2a;
+      background: #f9e242;
     }
   }
 
@@ -110,41 +110,41 @@ const StyledPages = styled.div`
   color: #fff;
 `;
 
-const StyledPhoneLink = styled.a`
-  display: inline-flex;
-  color: #ffac2a;
-  cursor: pointer;
-`;
+// const StyledPhoneLink = styled.a`
+//   display: inline-flex;
+//   color: #f9e242;
+//   cursor: pointer;
+// `;
 
-const StyledSeparator = styled.div`
-  background-color: #ffac2a;
-  height: 2px;
-  margin: 0;
-`;
+// const StyledSeparator = styled.div`
+//   background-color: #f9e242;
+//   height: 2px;
+//   margin: 0;
+// `;
 
-const StyledUpper = styled.div`
-  max-width: 1440px;
-  width: 90%;
-  margin: auto;
-  padding: 10px 0;
-  font-size: 1.2rem;
-  line-height: 1.3;
+// const StyledUpper = styled.div`
+//   max-width: 1440px;
+//   width: 90%;
+//   margin: auto;
+//   padding: 10px 0;
+//   font-size: 1.2rem;
+//   line-height: 1.3;
 
-  text-align: center;
-`;
+//   text-align: center;
+// `;
 
-const StyledFacebookLink = styled.a`
-  color: #fff;
-  font-size: 1.5rem;
-  text-decoration: none;
-  padding: 5px;
-  margin-right: 10px;
-`;
+// const StyledFacebookLink = styled.a`
+//   color: #fff;
+//   font-size: 1.5rem;
+//   text-decoration: none;
+//   padding: 5px;
+//   margin-right: 10px;
+// `;
 
 const Nav = ({ isHomePage }) => {
   return (
     <StyledWrapper isHomePage={isHomePage}>
-      <StyledUpper>
+      {/* <StyledUpper>
         <StyledFacebookLink href="https://www.facebook.com/Pomoc-Drogowa-Korona-100327174801068/">
           <FontAwesomeIcon icon={faFacebookF} />
         </StyledFacebookLink>
@@ -154,11 +154,11 @@ const Nav = ({ isHomePage }) => {
             {phoneNumber}
           </StyledPhoneLink>
         </span>
-      </StyledUpper>
-      <StyledSeparator />
+      </StyledUpper> */}
+      {/* <StyledSeparator /> */}
       <StyledInner>
         <StyledLogo>
-          <StyledLogoLink to="/">KORONA</StyledLogoLink>
+          <StyledLogoLink to="/">Logo</StyledLogoLink>
         </StyledLogo>
         <StyledPages>
           <StyledLink activeClassName="active" to="/kontakt/">

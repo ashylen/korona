@@ -47,8 +47,7 @@ const StyledLink = styled.a`
   font-size: 2.5rem;
   width: 60px;
   height: 60px;
-  border: 2px solid #ffac2a;
-  background-color: #343a40;
+  background-color: #46963a;
   border-radius: 50px;
   box-shadow: 0 0 0 0 rgba(174, 178, 178, 0.8);
   animation: ${pulse} 2s infinite, ${ring} 2s infinite;
