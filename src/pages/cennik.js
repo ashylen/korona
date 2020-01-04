@@ -77,11 +77,32 @@ const StyledFormLink = styled(props => <Link {...props} />)`
   cursor: pointer;
   margin: 20px 0;
   transition: transform 0.3s, color 0.3s, border-color 0.3s;
+  overflow: hidden;
+  font-weight: 600;
+
+  & span {
+    z-index: 5;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f9e242;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  }
 
   &:hover {
-    transform: translateX(5px);
-    color: #fff;
-    border-color: #fff;
+    color: #222;
+    border-color: transparent;
+
+    &:after {
+      transform: translateX(0);
+    }
   }
 `;
 
@@ -95,11 +116,32 @@ const StyledPhoneLink = styled.a`
   cursor: pointer;
   margin: 20px 0;
   transition: transform 0.3s, color 0.3s, border-color 0.3s;
+  overflow: hidden;
+  font-weight: 600;
+
+  & span {
+    z-index: 5;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f9e242;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  }
 
   &:hover {
-    transform: translateX(5px);
-    color: #fff;
-    border-color: #fff;
+    color: #222;
+    border-color: transparent;
+
+    &:after {
+      transform: translateX(0);
+    }
   }
 `;
 
@@ -124,11 +166,11 @@ const PricingPage = () => {
               innych rzeczy.
             </p>
             <StyledPhoneLink href={`tel:${phoneNumber}`}>
-              Zadzwoń do nas
+              <span>Zadzwoń do nas</span>
             </StyledPhoneLink>
             <div>lub</div>
             <StyledFormLink to="/kontakt/">
-              Przejdź do formularza kontaktowego
+              <span>Przejdź do formularza kontaktowego</span>
             </StyledFormLink>
           </StyledTextSide>
           {!isMobile && (

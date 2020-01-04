@@ -20,7 +20,7 @@ const Image = () => {
     query {
       placeholderImage: file(
         relativePath: {
-          eq: "Korona-Pomoc-Drogowa-Auto-Laweta-Rzeszow-Lancut-Zolynia.jpg"
+          eq: "Korona-Pomoc-Drogowa-Auto-Laweta-Rzeszow-Lancut-Zolynia-Pac.jpg"
         }
       ) {
         childImageSharp {
