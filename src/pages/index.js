@@ -12,6 +12,7 @@ import {
   faUserTie,
   faHandsHelping,
   faUsers,
+  faAngleDoubleDown,
 } from '@fortawesome/free-solid-svg-icons';
 
 // Utils
@@ -43,6 +44,21 @@ const fadeIn = keyframes`
   }
 `;
 
+const blinking = keyframes`
+  0% {
+    opacity: 0.5;
+    transform:translateY(10px);
+  }
+  50% {
+    opacity: 1;
+    transform:translateY(0);
+  }
+  100% {
+    opacity: 0.5;
+    transform:translateY(10px);
+  }
+`;
+
 const StyledTopWrapper = styled.div`
   position: relative;
   overflow: hidden;
@@ -54,6 +70,19 @@ const StyledTopWrapper = styled.div`
   @media (max-width: 992px) {
     background: #f9e242;
   }
+`;
+
+const StyledScrollDown = styled.div`
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+`;
+
+const StyledIconScrollDown = styled.div`
+  animation: ${blinking} 1.5s both infinite;
+  font-size: 4rem;
 `;
 
 const StyledSectionWrapper = styled.div`
@@ -237,6 +266,7 @@ const StyledFormLink = styled(props => <Link {...props} />)`
   transition: transform 0.3s, color 0.3s, border-color 0.3s;
   overflow: hidden;
   font-weight: 600;
+  line-height: 1.3;
 
   & span {
     z-index: 5;
@@ -282,6 +312,11 @@ const IndexPage = () => (
           <StyledH2>Miałeś wypadek? ZADZWOŃ!</StyledH2>
           {/* <Button>Kontakt</Button> */}
         </StyledSectionWrapper>
+        <StyledScrollDown>
+          <StyledIconScrollDown>
+            <FontAwesomeIcon icon={faAngleDoubleDown} />
+          </StyledIconScrollDown>
+        </StyledScrollDown>
       </HomeBackgroundImage>
     </StyledTopWrapper>
     <StyledSectionInfo>
