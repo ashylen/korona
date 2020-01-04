@@ -2,7 +2,7 @@ import React from 'react';
 
 // Modules
 import PropTypes from 'prop-types';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle, keyframes } from 'styled-components';
 import { Reset } from 'styled-reset';
 
 // Utils
@@ -14,6 +14,18 @@ import SEO from 'components/seo';
 
 const StyledWrapper = styled.div`
   margin-top: 56px;
+`;
+
+const loading = keyframes`
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: visible;
+    pointer-events: none;
+  }
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -28,6 +40,18 @@ const GlobalStyle = createGlobalStyle`
     padding:0;
     color: #fff;
     background-color: #222;
+
+    &:after{
+      content: '';
+      top: 0;
+      left:0;
+      bottom:0;
+      right:0;
+      background-color: #222;
+      animation: ${loading} 1s both;
+      z-index: 1000;
+      position: fixed;
+    }
   }
 
   *, *:after, *:before{
