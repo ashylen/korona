@@ -26,6 +26,8 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
     margin: 0;
     padding:0;
+    color: #fff;
+  background-color: #393939;
   }
 
   *, *:after, *:before{

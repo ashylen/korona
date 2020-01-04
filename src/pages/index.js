@@ -68,6 +68,16 @@ const StyledSectionWrapper = styled.div`
   }
 `;
 
+const StyledSectionInfo = styled.div`
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`;
+
 const StyledSkew = styled.div`
   position: absolute;
   bottom: 0;
@@ -182,6 +192,34 @@ const StyledPhoneMain = styled.div`
   }
 `;
 
+const StyledBox = styled.div`
+  padding: 20px 10px;
+
+  display: flex;
+  align-items: center;
+`;
+
+const StyledBoxIcon = styled.div`
+  display: flex;
+  font-size: 2rem;
+  margin-right: 20px;
+  color: #f9e242;
+`;
+
+const StyledBoxText = styled.div`
+  font-size: 2rem;
+`;
+
+const StyledBoxTitle = styled.h3`
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+`;
+
+const StyledBoxDescription = styled.p`
+  font-size: 1.6rem;
+`;
+
 const IndexPage = () => (
   <HomeTemplate>
     <SEO title="Strona główna" />
@@ -203,6 +241,52 @@ const IndexPage = () => (
         {/* <Button>Kontakt</Button> */}
       </StyledSectionWrapper>
     </StyledTopWrapper>
+    <StyledSectionInfo>
+      <StyledBox>
+        <StyledBoxIcon>
+          <FontAwesomeIcon icon={faPhone} />
+        </StyledBoxIcon>
+        <StyledBoxText>
+          <StyledBoxTitle>Kontakt 24/7</StyledBoxTitle>
+          <StyledBoxDescription>
+            Wspracie całodobowe o każdej porze dnia i nocy
+          </StyledBoxDescription>
+        </StyledBoxText>
+      </StyledBox>
+      <StyledBox>
+        <StyledBoxIcon>
+          <FontAwesomeIcon icon={faPhone} />
+        </StyledBoxIcon>
+        <StyledBoxText>
+          <StyledBoxTitle>Kontakt 24/7</StyledBoxTitle>
+          <StyledBoxDescription>
+            Wspracie całodobowe o każdej porze dnia i nocy
+          </StyledBoxDescription>
+        </StyledBoxText>
+      </StyledBox>
+      <StyledBox>
+        <StyledBoxIcon>
+          <FontAwesomeIcon icon={faPhone} />
+        </StyledBoxIcon>
+        <StyledBoxText>
+          <StyledBoxTitle>Kontakt 24/7</StyledBoxTitle>
+          <StyledBoxDescription>
+            Wspracie całodobowe o każdej porze dnia i nocy
+          </StyledBoxDescription>
+        </StyledBoxText>
+      </StyledBox>
+      <StyledBox>
+        <StyledBoxIcon>
+          <FontAwesomeIcon icon={faPhone} />
+        </StyledBoxIcon>
+        <StyledBoxText>
+          <StyledBoxTitle>Kontakt 24/7</StyledBoxTitle>
+          <StyledBoxDescription>
+            Wspracie całodobowe o każdej porze dnia i nocy
+          </StyledBoxDescription>
+        </StyledBoxText>
+      </StyledBox>
+    </StyledSectionInfo>
   </HomeTemplate>
 );
 

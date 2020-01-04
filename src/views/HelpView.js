@@ -34,6 +34,10 @@ const StyledSectionInfoInner = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 35px 25px;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
 `;
 
 const StyledH1 = styled.h1`
