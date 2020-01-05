@@ -12,6 +12,7 @@ import { phoneNumber, email } from 'utils/constants';
 const StyledFooter = styled.footer`
   background-color: #222;
   color: #fff;
+  border-top: 2px solid #343a40;
 `;
 
 // @TODO Make single component for logo

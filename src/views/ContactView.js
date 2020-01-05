@@ -11,7 +11,7 @@ const StyledSectionInfo = styled.div`
   color: #fff;
   background-color: #222;
 
-  margin: 65px 0 0;
+  margin: 45px 0 0;
   position: relative;
 
   display: flex;
