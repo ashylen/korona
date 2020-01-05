@@ -22,6 +22,7 @@
     "gatsby-plugin-styled-components": "^3.1.16",
     "gatsby-source-filesystem": "^2.1.40",
     "gatsby-transformer-sharp": "^2.3.9",
+    "google-map-react": "^1.1.5",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
     "prop-types": "^15.7.2",

@@ -74,7 +74,7 @@ const StyledTopWrapper = styled.div`
 
 const StyledScrollDown = styled.div`
   position: absolute;
-  bottom: 10px;
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 2rem;

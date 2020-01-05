@@ -39,7 +39,7 @@ const ring = keyframes`
 const StyledLink = styled.a`
   position: fixed;
   bottom: 5px;
-  right: 5px;
+  left: 5px;
   text-decoration: none;
   color: #fff;
   text-align: center;

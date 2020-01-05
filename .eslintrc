@@ -25,7 +25,7 @@
         "react/forbid-prop-types":0,
         "jsx-a11y/label-has-associated-control": [ 2, {
             "labelAttributes": ["label"],
-            "controlComponents": ["StyledInput"],
+            "controlComponents": ["StyledInput", "Field", "input"],
             "depth": 3
           }]
     }

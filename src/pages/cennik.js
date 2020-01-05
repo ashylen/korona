@@ -50,10 +50,8 @@ const StyledSectionWrapper = styled.section`
 
 const StyledPriceImage = styled.div`
   width: 30%;
-
-  @media (max-width: 550px) {
-    width: auto;
-  }
+  overflow: hidden;
+  border-radius: 5px;
 `;
 
 const StyledTextSide = styled.article`
