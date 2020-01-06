@@ -9,7 +9,9 @@
     ],
     "globals": {
         "window": true,
-        "document": true
+        "document": true,
+        "alert": true,
+        "FormData": true
     },
     "settings":{
         "import/resolver" :{
@@ -23,10 +25,7 @@
         "react/jsx-filename-extension":0,
         "react/jsx-props-no-spreading":0,
         "react/forbid-prop-types":0,
-        "jsx-a11y/label-has-associated-control": [ 2, {
-            "labelAttributes": ["label"],
-            "controlComponents": ["StyledInput", "Field", "input"],
-            "depth": 3
-          }]
+        "no-alert": 0,
+        "jsx-a11y/label-has-associated-control":0
     }
 }

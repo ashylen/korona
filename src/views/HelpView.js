@@ -16,6 +16,7 @@ import {
   faChargingStation,
   faAmbulance,
   faGlobeEurope,
+  faParking,
 } from '@fortawesome/free-solid-svg-icons';
 
 // Components
@@ -72,6 +73,7 @@ const HelpView = ({ title }) => (
       <InfoBox icon={faWrench}>Wymiana koła na drodze</InfoBox>
       <InfoBox icon={faRedo}>Spuszczanie źle zatankowanego paliwa</InfoBox>
       <InfoBox icon={faLockOpen}>Awaryjne otwieranie pojazdów</InfoBox>
+      <InfoBox icon={faParking}>Parking strzeżony 24/7</InfoBox>
       <InfoBox icon={faGlobeEurope}>
         Transport międzynarodowy (sprowadzanie samochodów z zagranicy)
       </InfoBox>

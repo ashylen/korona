@@ -5,8 +5,8 @@ import styled from 'styled-components';
 // import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 // Utils
 // import { phoneNumber } from 'utils/constants';
@@ -41,31 +41,17 @@ const StyledLogoLink = styled(props => <Link {...props} />)`
   transition: color 0.3s;
   color: #fff;
 
-  &:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: transparent;
-    bottom: 0;
-    left: 0;
-    transition: background-color 0.3s;
-  }
-
-  &:hover,
-  &.active {
-    color: #f9e242;
-
-    &:after {
-      background: #f9e242;
-    }
+  @media (max-width: 992px) {
+    padding: 20px 0;
+    font-size: 1.3rem;
+    margin: 0;
   }
 `;
 
 const StyledLink = styled(props => <Link {...props} />)`
   display: flex;
-  padding: 20px 40px;
-  margin: 0 8px;
+  padding: 20px 0;
+  margin: 0 15px;
   text-decoration: none;
   position: relative;
   transition: color 0.3s;
@@ -93,6 +79,8 @@ const StyledLink = styled(props => <Link {...props} />)`
 
   @media (max-width: 992px) {
     padding: 20px 0;
+    font-size: 1.3rem;
+    margin: 0 8px;
   }
 `;
 
@@ -108,6 +96,14 @@ const StyledPages = styled.div`
   display: flex;
   text-decoration: none;
   color: #fff;
+
+  & > a:first-of-type {
+    padding: 20px;
+
+    @media (max-width: 992px) {
+      padding: 20px 0;
+    }
+  }
 `;
 
 // const StyledPhoneLink = styled.a`
@@ -145,9 +141,6 @@ const Nav = ({ isHomePage }) => {
   return (
     <StyledWrapper isHomePage={isHomePage}>
       {/* <StyledUpper>
-        <StyledFacebookLink href="https://www.facebook.com/Pomoc-Drogowa-Korona-100327174801068/">
-          <FontAwesomeIcon icon={faFacebookF} />
-        </StyledFacebookLink>
         <span>
           Potrzebujesz pomocy? Zadzwoń do nas 24/7 -{' '}
           <StyledPhoneLink href={`tel:${phoneNumber}`}>
@@ -158,9 +151,12 @@ const Nav = ({ isHomePage }) => {
       {/* <StyledSeparator /> */}
       <StyledInner>
         <StyledLogo>
-          <StyledLogoLink to="/">Logo</StyledLogoLink>
+          <StyledLogoLink>Logo</StyledLogoLink>
         </StyledLogo>
         <StyledPages>
+          <StyledLink activeClassName="active" to="/">
+            <FontAwesomeIcon icon={faHome} />
+          </StyledLink>
           <StyledLink activeClassName="active" to="/kontakt/">
             Kontakt
           </StyledLink>

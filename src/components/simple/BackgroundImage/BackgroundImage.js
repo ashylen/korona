@@ -24,7 +24,6 @@ const BackgroundSection = ({ children, className }) => (
       }
     `}
     render={data => {
-      console.log(className);
       const imageData = data.desktop.childImageSharp.fluid;
       return (
         <BackgroundImage

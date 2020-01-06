@@ -10,7 +10,6 @@ import { Reset } from 'styled-reset';
 // Components
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
-import SEO from 'components/seo';
 
 const StyledWrapper = styled.div`
   margin-top: 54px;
@@ -51,7 +50,6 @@ const GlobalStyle = createGlobalStyle`
 const MainTemplate = ({ children, isHomePage }) => {
   return (
     <StyledWrapper>
-      <SEO />
       <Reset />
       <GlobalStyle />
       <Header isHomePage={isHomePage} />

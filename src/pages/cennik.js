@@ -19,7 +19,7 @@ const PriceImage = () => {
     query {
       placeholderImage: file(
         relativePath: {
-          eq: "Korona-Pomoc-Drogowa-Auto-Laweta-Rzeszow-Lancut-Zolynia-Lezajsk.png"
+          eq: "Korona-Pomoc-Drogowa-Auto-Laweta-Rzeszow-Lancut-Zolynia-Lezajsk.jpg"
         }
       ) {
         childImageSharp {

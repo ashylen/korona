@@ -2,13 +2,12 @@ import React, { useRef } from 'react';
 
 // Modules
 import styled, { keyframes } from 'styled-components';
-import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPhone,
   faHistory,
   faCoins,
-  faShippingFast,
+  faParking,
   faUserTie,
   faHandsHelping,
   faUsers,
@@ -21,6 +20,7 @@ import { phoneNumber } from 'utils/constants';
 // Components
 import HomeBackgroundImage from 'components/simple/BackgroundImage/BackgroundImage';
 import HomeTemplate from 'templates/HomeTemplate';
+import ContactBannerView from 'views/ContactBannerView';
 import SEO from 'components/seo';
 // import Button from 'components/simple/Button/Button';
 
@@ -74,7 +74,7 @@ const StyledTopWrapper = styled.div`
 
 const StyledScrollDown = styled.div`
   position: absolute;
-  bottom: 60px;
+  bottom: 70px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 2rem;
@@ -110,7 +110,7 @@ const StyledSectionInfo = styled.div`
   max-width: 1440px;
   width: 90%;
   margin: 0 auto;
-  padding: 30px 0;
+  padding: 50px 0 20px;
 
   display: flex;
   flex-wrap: wrap;
@@ -244,64 +244,11 @@ const StyledBoxDescription = styled.p`
   line-height: 1.2;
 `;
 
-const StyledSectionContact = styled.section`
-  background-color: #343a40;
-`;
-
-const StyledContactInner = styled.section`
-  max-width: 1440px;
-  width: 90%;
-  margin: 0 auto;
-  text-align: center;
-
-  padding: 30px 0;
-`;
-
-const StyledFormLink = styled(props => <Link {...props} />)`
-  display: inline-flex;
-  padding: 20px;
-  text-decoration: none;
-  position: relative;
-  color: #f9e242;
-  border: 2px solid #f9e242;
-  cursor: pointer;
-  margin: 20px 0;
-  transition: transform 0.3s, color 0.3s, border-color 0.3s;
-  overflow: hidden;
-  font-weight: 600;
-  line-height: 1.3;
-
-  & span {
-    z-index: 5;
-  }
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #f9e242;
-    transform: translateX(-100%);
-    transition: transform 0.3s;
-  }
-
-  &:hover {
-    color: #222;
-    border-color: transparent;
-
-    &:after {
-      transform: translateX(0);
-    }
-  }
-`;
-
 const IndexPage = () => {
   const SectionRef = useRef(null);
 
   const onScrollButtonClick = () => {
-    SectionRef.current.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    SectionRef.current.scrollIntoView({ block: 'start', behavior: 'smooth' });
   };
 
   return (
@@ -354,12 +301,13 @@ const IndexPage = () => {
         </StyledBox>
         <StyledBox>
           <StyledBoxIcon>
-            <FontAwesomeIcon icon={faShippingFast} />
+            <FontAwesomeIcon icon={faParking} />
           </StyledBoxIcon>
           <StyledBoxText>
-            <StyledBoxTitle>Nowe samochody</StyledBoxTitle>
+            <StyledBoxTitle>Parking strzeżony</StyledBoxTitle>
             <StyledBoxDescription>
-              Dbamy o stan techniczny naszej floty.
+              Posiadamy własny parking, na którym możemy przechować holowane
+              auta.
             </StyledBoxDescription>
           </StyledBoxText>
         </StyledBox>
@@ -397,14 +345,7 @@ const IndexPage = () => {
           </StyledBoxText>
         </StyledBox>
       </StyledSectionInfo>
-      <StyledSectionContact>
-        <StyledContactInner>
-          <StyledH2>Potrzebujesz pomocy w innej sprawie?</StyledH2>
-          <StyledFormLink to="/kontakt/">
-            <span>Przejdź do formularza kontaktowego</span>
-          </StyledFormLink>
-        </StyledContactInner>
-      </StyledSectionContact>
+      <ContactBannerView />
     </HomeTemplate>
   );
 };

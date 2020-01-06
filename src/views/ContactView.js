@@ -4,6 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import GoogleMapReact from 'google-map-react';
+import axios from 'axios';
 
 // Components
 
@@ -52,17 +53,6 @@ const StyledFormInner = styled.div`
   }
 `;
 
-// const handleSubmit = (values, { setSubmitting }) => {
-const handleSubmit = () => {};
-
-const StyledInput = styled(Field)`
-  padding: 10px;
-  margin: 12px 0 0;
-  width: 100%;
-  border: 1px solid #d1d1d1;
-  font-family: 'Montserrat', sans-serif;
-`;
-
 const StyledMapWrapper = styled.div`
   position: absolute;
   top: 0;
@@ -89,12 +79,27 @@ const StyledLegend = styled.legend`
 const StyledError = styled.div`
   background-color: #dc3545;
   color: #fff;
-  padding: 10px;
+  font-size: 1.1rem;
+  padding: 5px 10px;
 `;
 
 const StyledInputWrapper = styled.div`
   min-width: 250px;
   max-width: 400px;
+
+  & > p {
+    font-size: 1.4rem;
+    background: #545454;
+    border-radius: 5px;
+    padding: 10px;
+    line-height: 1.2;
+  }
+
+  & > label {
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+
   @media (max-width: 992px) {
     max-width: unset;
   }
@@ -155,16 +160,133 @@ const StyledSubmitButton = styled.button`
   }
 `;
 
+// const handleSubmit = (values, { setSubmitting }) => {
+const handleSubmit = (values, { resetForm }) => {
+  const formData = new FormData();
+  formData.append('service_id', 'gmail');
+  formData.append('template_id', 'template_uNovYqTW');
+  formData.append('user_id', 'user_Dkbtihfauz6skjHuzH6iS');
+  const messageHtml = `Email: ${values.email} <br/>Imię: ${
+    values.name
+  }<br/>Telefon: ${values.phone}<br/>Pojazd: ${values.vehicleType}<br/>Treść: ${
+    values.content
+  }<br/>Oświadczenie zaznaczone: ${values.agreement ? 'TAK' : 'NIE'}`;
+
+  formData.append('message_html', messageHtml);
+
+  axios
+    .post('https://api.emailjs.com/api/v1.0/email/send-form', formData, {
+      headers: {
+        'content-type': 'multipart/form-data',
+      },
+    })
+    .then(() => {
+      resetForm();
+      alert('Wysłano!');
+    })
+    .catch(() => {
+      alert(`Oops...Wystąpił problem! Spróbuj wysłać formularz jeszcze raz.`);
+    });
+
+  // emailjs
+  //   .send(
+  //     'gmail',
+  //     'template_uNovYqTW',
+  //     templateParams,
+  //     'user_Dkbtihfauz6skjHuzH6iS'
+  //   )
+  //   .then(
+  //     response => {
+  //       console.log('SUCCESS!', response.status, response.text);
+  //     },
+  //     err => {
+  //       console.log('FAILED...', err);
+  //     }
+  //   );
+};
+
+const StyledInput = styled(Field)`
+  padding: 10px;
+  margin: 12px 0 0;
+  width: 100%;
+  border: 1px solid #d1d1d1;
+  font-family: 'Montserrat', sans-serif;
+`;
+
+const StyledTextarea = styled.textarea`
+  padding: 10px;
+  margin: 12px 0 0;
+  width: 100%;
+  border: 1px solid #d1d1d1;
+  font-family: 'Montserrat', sans-serif;
+`;
+
+const StyledCheckbox = styled(Field)`
+  position: absolute;
+  opacity: 0;
+
+  & + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  & + label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f9e242;
+  }
+
+  &:focus + label:before {
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+  }
+
+  &:checked + label:before {
+    background: #f9e242;
+  }
+
+  &:disabled + label {
+    color: #b8b8b8;
+    cursor: auto;
+  }
+
+  &:disabled + label:before {
+    box-shadow: none;
+    background: #ddd;
+  }
+`;
+
+const StyledGatsbyLink = styled.a`
+  color: #f9e242;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 0.6;
+  }
+`;
+
 const ContactView = () => (
   <StyledSectionInfo>
     <StyledFormWrapper>
       <StyledFormInner>
         <Formik
-          initialValues={{ email: '' }}
+          initialValues={{
+            email: '',
+            name: '',
+            phone: '',
+            vehicleType: '',
+            content: '',
+            agreement: false,
+          }}
           validate={values => {
+            console.log(values);
             const errors = {};
             if (!values.email) {
-              errors.email = 'Wymagane';
+              errors.email = 'To pole jest wymagane';
             } else if (
               !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
             ) {
@@ -172,12 +294,21 @@ const ContactView = () => (
             }
 
             if (!values.name) {
-              errors.name = 'Wymagane';
+              errors.name = 'To pole jest wymagane';
             }
 
-            if (!values.phone) {
-              errors.phone = 'Wymagane';
+            if (!values.vehicleType) {
+              errors.vehicleType = 'To pole jest wymagane';
             }
+
+            if (!values.agreement) {
+              errors.agreement = 'To pole musi być zaznaczone';
+            }
+
+            // if (!values.content) {
+            //   errors.content = 'Wymagane';
+            // }
+
             return errors;
           }}
           onSubmit={handleSubmit}
@@ -209,48 +340,60 @@ const ContactView = () => (
                     name="phone"
                     placeholder="Numer telefonu"
                   />
-                  <ErrorMessage name="phone" component={StyledError} />
                 </StyledInputWrapper>
                 <StyledInputWrapper>
                   <StyledInput
-                    as="select"
+                    type="vehicleType"
                     name="vehicleType"
-                    placeholder="Co trzeba przewieźć?"
-                  >
-                    <option value="">-- Co trzeba przewieźć? --</option>
-                    <option value="car">Samochód</option>
-                    <option value="moto">Motocykl</option>
-                    <option value="tractor">Traktor</option>
-                  </StyledInput>
+                    placeholder="Pojazd"
+                  />
+                  <ErrorMessage name="vehicleType" component={StyledError} />
+                </StyledInputWrapper>
+
+                <StyledInputWrapper>
+                  <br />
+                  <p>
+                    Poniżej wprowadź treść swojego zapytania. <br /> Pamiętaj,
+                    aby dokładnie określić trasę oraz co będzie przewożone.
+                    Ułatwi to wycenę usługi.
+                  </p>
                 </StyledInputWrapper>
                 <StyledInputWrapper>
-                  <StyledInput type="from" name="from" placeholder="Skąd?" />
-                  <ErrorMessage name="from" component={StyledError} />
-                </StyledInputWrapper>
-                <StyledInputWrapper>
-                  <StyledInput type="to" name="to" placeholder="Dokąd?" />
-                  <ErrorMessage name="to" component={StyledError} />
-                </StyledInputWrapper>
-                <StyledInputWrapper>
-                  <StyledInput
-                    as="textarea"
-                    type="textarea"
+                  <Field
+                    as={StyledTextarea}
                     rows="5"
-                    name="text"
-                    placeholder="Wprowadź treść wiadomości..."
+                    name="content"
+                    placeholder="Wprowadź treść zapytania..."
                   />
                   <ErrorMessage name="text" component={StyledError} />
                 </StyledInputWrapper>
+                <br />
                 <StyledInputWrapper>
-                  <label>
-                    <Field
-                      type="checkbox"
-                      name="agreement"
-                      placeholder="Numer telefonu"
-                    />
-                    Oświadczam, że zapoznałem się i akceptuję treść Regulaminu
-                    Serwisu oraz Polityki Ochrony Prywatności.
+                  <StyledCheckbox
+                    id="agreement"
+                    type="checkbox"
+                    name="agreement"
+                  />
+                  <label htmlFor="agreement">
+                    Oświadczam, że zapoznałem się i akceptuję treść{' '}
+                    <StyledGatsbyLink
+                      target="_blank"
+                      rel="noopener norefferer"
+                      href="/regulamin-serwisu/"
+                    >
+                      Regulaminu Serwisu
+                    </StyledGatsbyLink>{' '}
+                    oraz{' '}
+                    <StyledGatsbyLink
+                      target="_blank"
+                      rel="noopener norefferer"
+                      href="/polityka-prywatnosci/"
+                    >
+                      Polityki Ochrony Prywatności
+                    </StyledGatsbyLink>
+                    .
                   </label>
+                  <ErrorMessage name="agreement" component={StyledError} />
                 </StyledInputWrapper>
 
                 <StyledSubmitButton type="submit" disabled={isSubmitting}>

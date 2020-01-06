@@ -8,6 +8,7 @@ import MainTemplate from 'templates/MainTemplate';
 import SEO from 'components/seo';
 import SectionTitle from 'components/simple/SectionTitle/SectionTitle';
 import HelpView from 'views/HelpView';
+import ContactBannerView from 'views/ContactBannerView';
 
 // const SectionDesc = styled.article`
 //   max-width: 1440px;
@@ -20,6 +21,7 @@ const OfferPage = () => (
     <SEO title="Oferta" />
     <SectionTitle>Oferta</SectionTitle>
     <HelpView />
+    <ContactBannerView />
   </MainTemplate>
 );
 
