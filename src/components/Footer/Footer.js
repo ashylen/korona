@@ -99,6 +99,15 @@ const StyledLink = styled.a`
   }
 `;
 
+const StyledEmail = styled.a`
+  color: #f9e242;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 0.6;
+  }
+`;
+
 const StyledContactWrapper = styled.div`
   width: 100%;
 `;
@@ -143,14 +152,14 @@ const Footer = () => {
           <br />
           <div>
             Wykonanie strony:{' '}
-            <a
+            <StyledEmail
               title="dominik.urban.mail@gmail.com"
               href="mailto:dominik.urban.mail@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
             >
               Dominik Urban
-            </a>
+            </StyledEmail>
           </div>
           <br />
           <div>{new Date().getFullYear()}</div>

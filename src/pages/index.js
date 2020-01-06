@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 // Modules
 import styled, { keyframes } from 'styled-components';
@@ -78,6 +78,8 @@ const StyledScrollDown = styled.div`
   left: 50%;
   transform: translateX(-50%);
   font-size: 2rem;
+  z-index: 2;
+  cursor: pointer;
 `;
 
 const StyledIconScrollDown = styled.div`
@@ -295,108 +297,116 @@ const StyledFormLink = styled(props => <Link {...props} />)`
   }
 `;
 
-const IndexPage = () => (
-  <HomeTemplate>
-    <SEO title="Strona główna" />
-    <StyledTopWrapper>
-      <HomeBackgroundImage>
-        <StyledSkew />
-        <StyledSkewSecond />
-        <StyledSkewThird />
-        <StyledSectionWrapper>
-          <StyledH1>
-            Pomoc drogowa <br /> Holowanie 24h <br /> Laweta
-          </StyledH1>
-          <StyledPhoneMain href={`tel:${phoneNumber}`}>
-            <FontAwesomeIcon icon={faPhone} /> <span>{phoneNumber}</span>
-          </StyledPhoneMain>
-          <StyledH2>Miałeś wypadek? ZADZWOŃ!</StyledH2>
-          {/* <Button>Kontakt</Button> */}
-        </StyledSectionWrapper>
-        <StyledScrollDown>
-          <StyledIconScrollDown>
-            <FontAwesomeIcon icon={faAngleDoubleDown} />
-          </StyledIconScrollDown>
-        </StyledScrollDown>
-      </HomeBackgroundImage>
-    </StyledTopWrapper>
-    <StyledSectionInfo>
-      <StyledBox>
-        <StyledBoxIcon>
-          <FontAwesomeIcon icon={faHistory} />
-        </StyledBoxIcon>
-        <StyledBoxText>
-          <StyledBoxTitle>Kontakt 24/7</StyledBoxTitle>
-          <StyledBoxDescription>
-            Wspracie całodobowe o każdej porze dnia i nocy.
-          </StyledBoxDescription>
-        </StyledBoxText>
-      </StyledBox>
-      <StyledBox>
-        <StyledBoxIcon>
-          <FontAwesomeIcon icon={faCoins} />
-        </StyledBoxIcon>
-        <StyledBoxText>
-          <StyledBoxTitle>Konkurencyjne ceny</StyledBoxTitle>
-          <StyledBoxDescription>
-            Usługi na najwyższym poziomie w konkurencyjnych cenach.
-          </StyledBoxDescription>
-        </StyledBoxText>
-      </StyledBox>
-      <StyledBox>
-        <StyledBoxIcon>
-          <FontAwesomeIcon icon={faShippingFast} />
-        </StyledBoxIcon>
-        <StyledBoxText>
-          <StyledBoxTitle>Nowe samochody</StyledBoxTitle>
-          <StyledBoxDescription>
-            Dbamy o stan techniczny naszej floty.
-          </StyledBoxDescription>
-        </StyledBoxText>
-      </StyledBox>
-      <StyledBox>
-        <StyledBoxIcon>
-          <FontAwesomeIcon icon={faUserTie} />
-        </StyledBoxIcon>
-        <StyledBoxText>
-          <StyledBoxTitle>Profesjonalna obsługa</StyledBoxTitle>
-          <StyledBoxDescription>
-            Możesz nam zaufać, zawsze służymy pomocą oraz wsparciem.
-          </StyledBoxDescription>
-        </StyledBoxText>
-      </StyledBox>
-      <StyledBox>
-        <StyledBoxIcon>
-          <FontAwesomeIcon icon={faHandsHelping} />
-        </StyledBoxIcon>
-        <StyledBoxText>
-          <StyledBoxTitle>Zależy nam na Tobie</StyledBoxTitle>
-          <StyledBoxDescription>
-            Usługi wykonywane są z dbałością o szegóły.
-          </StyledBoxDescription>
-        </StyledBoxText>
-      </StyledBox>
-      <StyledBox>
-        <StyledBoxIcon>
-          <FontAwesomeIcon icon={faUsers} />
-        </StyledBoxIcon>
-        <StyledBoxText>
-          <StyledBoxTitle>Doświadczony zespół</StyledBoxTitle>
-          <StyledBoxDescription>
-            Nasz zespół służy poradą w każdej kwestii.
-          </StyledBoxDescription>
-        </StyledBoxText>
-      </StyledBox>
-    </StyledSectionInfo>
-    <StyledSectionContact>
-      <StyledContactInner>
-        <StyledH2>Potrzebujesz pomocy w innej sprawie?</StyledH2>
-        <StyledFormLink to="/kontakt/">
-          <span>Przejdź do formularza kontaktowego</span>
-        </StyledFormLink>
-      </StyledContactInner>
-    </StyledSectionContact>
-  </HomeTemplate>
-);
+const IndexPage = () => {
+  const SectionRef = useRef(null);
+
+  const onScrollButtonClick = () => {
+    SectionRef.current.scrollIntoView({ block: 'end', behavior: 'smooth' });
+  };
+
+  return (
+    <HomeTemplate>
+      <SEO title="Strona główna" />
+      <StyledTopWrapper>
+        <HomeBackgroundImage>
+          <StyledSkew />
+          <StyledSkewSecond />
+          <StyledSkewThird />
+          <StyledSectionWrapper>
+            <StyledH1>
+              Pomoc drogowa <br /> Holowanie 24h <br /> Laweta
+            </StyledH1>
+            <StyledPhoneMain href={`tel:${phoneNumber}`}>
+              <FontAwesomeIcon icon={faPhone} /> <span>{phoneNumber}</span>
+            </StyledPhoneMain>
+            <StyledH2>Miałeś wypadek? ZADZWOŃ!</StyledH2>
+            {/* <Button>Kontakt</Button> */}
+          </StyledSectionWrapper>
+          <StyledScrollDown onClick={onScrollButtonClick}>
+            <StyledIconScrollDown>
+              <FontAwesomeIcon icon={faAngleDoubleDown} />
+            </StyledIconScrollDown>
+          </StyledScrollDown>
+        </HomeBackgroundImage>
+      </StyledTopWrapper>
+      <StyledSectionInfo ref={SectionRef}>
+        <StyledBox>
+          <StyledBoxIcon>
+            <FontAwesomeIcon icon={faHistory} />
+          </StyledBoxIcon>
+          <StyledBoxText>
+            <StyledBoxTitle>Kontakt 24/7</StyledBoxTitle>
+            <StyledBoxDescription>
+              Wspracie całodobowe o każdej porze dnia i nocy.
+            </StyledBoxDescription>
+          </StyledBoxText>
+        </StyledBox>
+        <StyledBox>
+          <StyledBoxIcon>
+            <FontAwesomeIcon icon={faCoins} />
+          </StyledBoxIcon>
+          <StyledBoxText>
+            <StyledBoxTitle>Konkurencyjne ceny</StyledBoxTitle>
+            <StyledBoxDescription>
+              Usługi na najwyższym poziomie w konkurencyjnych cenach.
+            </StyledBoxDescription>
+          </StyledBoxText>
+        </StyledBox>
+        <StyledBox>
+          <StyledBoxIcon>
+            <FontAwesomeIcon icon={faShippingFast} />
+          </StyledBoxIcon>
+          <StyledBoxText>
+            <StyledBoxTitle>Nowe samochody</StyledBoxTitle>
+            <StyledBoxDescription>
+              Dbamy o stan techniczny naszej floty.
+            </StyledBoxDescription>
+          </StyledBoxText>
+        </StyledBox>
+        <StyledBox>
+          <StyledBoxIcon>
+            <FontAwesomeIcon icon={faUserTie} />
+          </StyledBoxIcon>
+          <StyledBoxText>
+            <StyledBoxTitle>Profesjonalna obsługa</StyledBoxTitle>
+            <StyledBoxDescription>
+              Możesz nam zaufać, zawsze służymy pomocą oraz wsparciem.
+            </StyledBoxDescription>
+          </StyledBoxText>
+        </StyledBox>
+        <StyledBox>
+          <StyledBoxIcon>
+            <FontAwesomeIcon icon={faHandsHelping} />
+          </StyledBoxIcon>
+          <StyledBoxText>
+            <StyledBoxTitle>Zależy nam na Tobie</StyledBoxTitle>
+            <StyledBoxDescription>
+              Usługi wykonywane są z dbałością o szegóły.
+            </StyledBoxDescription>
+          </StyledBoxText>
+        </StyledBox>
+        <StyledBox>
+          <StyledBoxIcon>
+            <FontAwesomeIcon icon={faUsers} />
+          </StyledBoxIcon>
+          <StyledBoxText>
+            <StyledBoxTitle>Doświadczony zespół</StyledBoxTitle>
+            <StyledBoxDescription>
+              Nasz zespół służy poradą w każdej kwestii.
+            </StyledBoxDescription>
+          </StyledBoxText>
+        </StyledBox>
+      </StyledSectionInfo>
+      <StyledSectionContact>
+        <StyledContactInner>
+          <StyledH2>Potrzebujesz pomocy w innej sprawie?</StyledH2>
+          <StyledFormLink to="/kontakt/">
+            <span>Przejdź do formularza kontaktowego</span>
+          </StyledFormLink>
+        </StyledContactInner>
+      </StyledSectionContact>
+    </HomeTemplate>
+  );
+};
 
 export default IndexPage;
