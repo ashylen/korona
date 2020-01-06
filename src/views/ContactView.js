@@ -49,7 +49,7 @@ const StyledFormInner = styled.div`
 
   @media (max-width: 992px) {
     width: 100%;
-    padding: 25px 10px;
+    padding: 25px 0;
   }
 `;
 
