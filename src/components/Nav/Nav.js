@@ -4,7 +4,8 @@ import React from 'react';
 import styled from 'styled-components';
 // import cx from 'classnames';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import Img from 'gatsby-image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
@@ -30,21 +31,18 @@ const StyledInner = styled.div`
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const StyledLogoLink = styled(props => <Link {...props} />)`
   display: flex;
-  padding: 20px 0;
-  margin: 0 8px 0 0;
+  padding: 0;
+  margin: 0;
   text-decoration: none;
   position: relative;
-  transition: color 0.3s;
-  color: #fff;
 
-  @media (max-width: 992px) {
-    padding: 20px 0;
-    font-size: 1.3rem;
-    margin: 0;
+  & img {
+    border-radius: 50%;
   }
 `;
 
@@ -86,10 +84,6 @@ const StyledLink = styled(props => <Link {...props} />)`
 
 const StyledLogo = styled.div`
   display: flex;
-
-  a {
-    padding: 20px 0;
-  }
 `;
 
 const StyledPages = styled.div`
@@ -137,6 +131,22 @@ const StyledPages = styled.div`
 //   margin-right: 10px;
 // `;
 
+const Logo = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "logo.jpg" }) {
+        childImageSharp {
+          fixed(width: 40, height: 40) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `);
+
+  return <Img fixed={data.placeholderImage.childImageSharp.fixed} />;
+};
+
 const Nav = ({ isHomePage }) => {
   return (
     <StyledWrapper isHomePage={isHomePage}>
@@ -151,7 +161,9 @@ const Nav = ({ isHomePage }) => {
       {/* <StyledSeparator /> */}
       <StyledInner>
         <StyledLogo>
-          <StyledLogoLink>Logo</StyledLogoLink>
+          <StyledLogoLink>
+            <Logo />
+          </StyledLogoLink>
         </StyledLogo>
         <StyledPages>
           <StyledLink activeClassName="active" to="/">

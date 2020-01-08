@@ -2,7 +2,8 @@ import React from 'react';
 
 // Modules
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import Img from 'gatsby-image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
@@ -15,13 +16,32 @@ const StyledFooter = styled.footer`
   border-top: 2px solid #343a40;
 `;
 
+const Logo = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "logo.jpg" }) {
+        childImageSharp {
+          fixed(width: 150, height: 150) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `);
+
+  return <Img fixed={data.placeholderImage.childImageSharp.fixed} />;
+};
+
 // @TODO Make single component for logo
 const StyledGatsbyLink = styled(props => <Link {...props} />)`
   display: flex;
-  padding: 20px 0;
-  font-size: 3rem;
+  padding: 20px 10px;
   text-decoration: none;
   color: #f9e242;
+
+  & img {
+    border-radius: 50%;
+  }
 `;
 
 const StyledWrapper = styled.div`
@@ -116,7 +136,9 @@ const Footer = () => {
   return (
     <StyledFooter>
       <StyledWrapper>
-        <StyledGatsbyLink to="/">LOGO</StyledGatsbyLink>
+        <StyledGatsbyLink to="/">
+          <Logo />
+        </StyledGatsbyLink>
         <StyledContactWrapper>
           <StyledContent>
             <StyledItemHeading>Adres</StyledItemHeading>
