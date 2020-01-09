@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import GoogleMapReact from 'google-map-react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
 
 // Components
 
@@ -86,6 +88,8 @@ const StyledError = styled.div`
 const StyledInputWrapper = styled.div`
   min-width: 250px;
   max-width: 400px;
+  display: flex;
+  flex-flow: column;
 
   & > p {
     font-size: 1.4rem;
@@ -151,17 +155,19 @@ const StyledSubmitButton = styled.button`
   }
 
   &:hover {
-    color: #222;
-    border-color: transparent;
+    ${({ isSubmitting }) =>
+      !isSubmitting && 'color: #222;border-color: transparent;'}
 
     &:after {
+      ${({ isSubmitting }) => isSubmitting && 'display:none;'}
       transform: translateX(0);
     }
   }
 `;
 
 // const handleSubmit = (values, { setSubmitting }) => {
-const handleSubmit = (values, { resetForm }) => {
+const handleSubmit = (values, { resetForm, setSubmitting }) => {
+  setSubmitting(true);
   const formData = new FormData();
   formData.append('service_id', 'gmail');
   formData.append('template_id', 'template_uNovYqTW');
@@ -183,26 +189,12 @@ const handleSubmit = (values, { resetForm }) => {
     .then(() => {
       resetForm();
       alert('Wysłano!');
+      setSubmitting(false);
     })
     .catch(() => {
       alert(`Oops...Wystąpił problem! Spróbuj wysłać formularz jeszcze raz.`);
+      setSubmitting(false);
     });
-
-  // emailjs
-  //   .send(
-  //     'gmail',
-  //     'template_uNovYqTW',
-  //     templateParams,
-  //     'user_Dkbtihfauz6skjHuzH6iS'
-  //   )
-  //   .then(
-  //     response => {
-  //       console.log('SUCCESS!', response.status, response.text);
-  //     },
-  //     err => {
-  //       console.log('FAILED...', err);
-  //     }
-  //   );
 };
 
 const StyledInput = styled(Field)`
@@ -269,6 +261,10 @@ const StyledGatsbyLink = styled.a`
   }
 `;
 
+const StyledFieldset = styled.fieldset`
+  opacity: ${({ isSubmitting }) => (isSubmitting ? '0.35' : '1')};
+`;
+
 const ContactView = () => (
   <StyledSectionInfo>
     <StyledFormWrapper>
@@ -305,9 +301,9 @@ const ContactView = () => (
               errors.agreement = 'To pole musi być zaznaczone';
             }
 
-            // if (!values.content) {
-            //   errors.content = 'Wymagane';
-            // }
+            if (!values.content) {
+              errors.content = 'To pole jest wymagane';
+            }
 
             return errors;
           }}
@@ -315,13 +311,13 @@ const ContactView = () => (
         >
           {({ isSubmitting }) => (
             <Form>
-              <fieldset>
+              <StyledFieldset isSubmitting={isSubmitting}>
                 <StyledLegend>Skontaktuj się z nami!</StyledLegend>
                 <p>Zgłoś się do nas poprzez poniższy formularz, oddzwonimy.</p>
 
                 <br />
                 <StyledInputWrapper>
-                  <StyledInput type="name" name="name" placeholder="Imię" />
+                  <StyledInput type="text" name="name" placeholder="Imię" />
                   <ErrorMessage name="name" component={StyledError} />
                 </StyledInputWrapper>
 
@@ -336,14 +332,14 @@ const ContactView = () => (
                 </StyledInputWrapper>
                 <StyledInputWrapper>
                   <StyledInput
-                    type="phone"
+                    type="number"
                     name="phone"
                     placeholder="Numer telefonu"
                   />
                 </StyledInputWrapper>
                 <StyledInputWrapper>
                   <StyledInput
-                    type="vehicleType"
+                    type="text"
                     name="vehicleType"
                     placeholder="Pojazd"
                   />
@@ -365,7 +361,7 @@ const ContactView = () => (
                     name="content"
                     placeholder="Wprowadź treść zapytania..."
                   />
-                  <ErrorMessage name="text" component={StyledError} />
+                  <ErrorMessage name="content" component={StyledError} />
                 </StyledInputWrapper>
                 <br />
                 <StyledInputWrapper>
@@ -396,10 +392,18 @@ const ContactView = () => (
                   <ErrorMessage name="agreement" component={StyledError} />
                 </StyledInputWrapper>
 
-                <StyledSubmitButton type="submit" disabled={isSubmitting}>
-                  <span>WYŚLIJ</span>
+                <StyledSubmitButton
+                  type="submit"
+                  disabled={isSubmitting}
+                  isSubmitting={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <FontAwesomeIcon icon={faCog} className="fa-spin" />
+                  ) : (
+                    <span>WYŚLIJ</span>
+                  )}
                 </StyledSubmitButton>
-              </fieldset>
+              </StyledFieldset>
             </Form>
           )}
         </Formik>
