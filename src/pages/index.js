@@ -122,7 +122,10 @@ const StyledSkew = styled.div`
   height: 1000%;
   right: 65%;
   z-index: 1;
-  animation: ${slideIn} 1s;
+
+  @media (min-width: 992px) {
+    animation: ${slideIn} 1s;
+  }
 
   @media (max-width: 992px) {
     background: rgba(0, 0, 0, 0.45);
@@ -142,7 +145,10 @@ const StyledSkewSecond = styled.div`
   height: 1000%;
   right: 0%;
   z-index: 1;
-  animation: ${slideIn} 1s 0.2s;
+
+  @media (min-width: 992px) {
+    animation: ${slideIn} 1s 0.2s;
+  }
 
   @media (max-width: 992px) {
     display: none;
@@ -160,7 +166,10 @@ const StyledSkewThird = styled.div`
   height: 1000%;
   right: -50%;
   z-index: 1;
-  animation: ${slideIn} 1s 0.4s;
+
+  @media (min-width: 992px) {
+    animation: ${slideIn} 1s 0.4s;
+  }
 
   @media (max-width: 992px) {
     display: none;
