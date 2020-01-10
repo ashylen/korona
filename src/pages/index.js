@@ -22,7 +22,6 @@ import HomeBackgroundImage from 'components/simple/BackgroundImage/BackgroundIma
 import HomeTemplate from 'templates/HomeTemplate';
 import ContactBannerView from 'views/ContactBannerView';
 import SEO from 'components/seo';
-// import Button from 'components/simple/Button/Button';
 
 const slideIn = keyframes`
   0% {
@@ -89,17 +88,12 @@ const StyledIconScrollDown = styled.div`
 
 const StyledSectionWrapper = styled.div`
   max-width: 1440px;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   width: 90%;
   margin: auto;
   position: relative;
   z-index: 2;
 
-  @media (min-width: 992px) {
-    animation: ${fadeIn} 0.4s 0.6s both;
-  }
+  animation: ${fadeIn} 0.4s 0.6s both;
 
   @media (max-width: 992px) {
     margin: 10% auto auto;
@@ -243,6 +237,8 @@ const StyledBoxDescription = styled.p`
   font-size: 1.6rem;
   line-height: 1.2;
 `;
+
+// @TODO Popracowac nad SEO, poprawic TAGI H1, dodać podstronki typu "Pomoc drogowa Rzeszow itp" pod seo,
 
 const IndexPage = () => {
   const SectionRef = useRef(null);
