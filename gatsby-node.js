@@ -1,6 +1,20 @@
 exports.createPages = async function({ actions }) {
-  const dataNames = ['Żołynia', 'Łańcut', 'Leżajsk'];
-  const dataNamesClear = ['zolynia', 'lancut', 'lezajsk'];
+  const dataNames = [
+    'Żołynia',
+    'Łańcut',
+    'Leżajsk',
+    'Rzeszów',
+    'Jarosław',
+    'Autostrada A4',
+  ];
+  const dataNamesClear = [
+    'zolynia',
+    'lancut',
+    'lezajsk',
+    'rzeszow',
+    'jaroslaw',
+    'autostrada-a4',
+  ];
 
   dataNamesClear.forEach((city, key) => {
     actions.createPage({
