@@ -4,7 +4,6 @@ import React, { useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faPhone,
   faHistory,
   faCoins,
   faParking,
@@ -213,6 +212,11 @@ const StyledPhoneMain = styled.a`
 
   & > span {
     margin-left: 5px;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #f9e242;
+    background-color: rgba(0, 0, 0, 0.6);
   }
 `;
 
@@ -257,7 +261,7 @@ const IndexPage = () => {
     SectionRef.current.scrollIntoView({ block: 'start', behavior: 'smooth' });
   };
 
-  const windowHack = typeof window !== 'undefined' ? window : null;
+  // const windowHack = typeof window !== 'undefined' ? window : null;
 
   return (
     <HomeTemplate>
@@ -272,11 +276,11 @@ const IndexPage = () => {
               Pomoc drogowa <br /> Holowanie 24h <br /> Laweta
             </StyledH1>
             <StyledPhoneMain href={`tel:${phoneNumber}`}>
-              {windowHack && windowHack.innerWidth < 992 ? (
+              {/* {windowHack && windowHack.innerWidth < 992 ? (
                 <FontAwesomeIcon style={{ fontSize: '10vw' }} icon={faPhone} />
               ) : (
                 <FontAwesomeIcon icon={faPhone} />
-              )}{' '}
+              )}{' '} */}
               <span>{phoneNumber}</span>
             </StyledPhoneMain>
             <StyledH2>Miałeś wypadek? ZADZWOŃ!</StyledH2>
