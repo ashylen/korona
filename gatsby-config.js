@@ -20,13 +20,15 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
-          `Montserrat`,
-          `sans serif:300,600`, // you can also specify font weights and styles
+          {
+            family: `Montserrat`,
+            subsets: [`latin`],
+            variants: [`300`, `600`],
+          },
         ],
-        display: 'swap',
       },
     },
     {

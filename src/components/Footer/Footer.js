@@ -106,7 +106,7 @@ const StyledLink = styled.a`
   text-decoration: none;
   color: inherit;
   text-align: center;
-  padding: ${({ icon }) => (icon ? '10px' : '10px 0')};
+  padding: ${({ icon }) => (icon ? '10px' : '20px 0')};
   transition: color 0.3s, transform 0.3s, opacity 0.3s;
   will-change: color;
   font-size: ${({ icon }) => (icon ? '4rem' : '2rem')};

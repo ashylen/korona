@@ -161,8 +161,8 @@ const Nav = ({ isHomePage }) => {
       {/* <StyledSeparator /> */}
       <StyledInner>
         <StyledLogo>
-          <StyledLogoLink alt="logo">
-            <Logo />
+          <StyledLogoLink>
+            <Logo alt="logo" />
           </StyledLogoLink>
         </StyledLogo>
         <StyledPages>

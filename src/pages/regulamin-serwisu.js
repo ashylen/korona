@@ -19,24 +19,7 @@ const InfoPage = () => (
   <MainTemplate>
     <SEO title="Regulamin serwisu" />
     <SectionTitle>Regulamin serwisu</SectionTitle>
-    <SectionDesc>
-      Tutaj pewnie będzie jakiś regulamin... Lorem ipsum dolor sit amet Tutaj
-      pewnie będzie jakiś regulamin... Lorem ipsum dolor sit amet Tutaj pewnie
-      będzie jakiś regulamin... Lorem ipsum dolor sit amet Tutaj pewnie będzie
-      jakiś regulamin... Lorem ipsum dolor sit amet Tutaj pewnie będzie jakiś
-      regulamin... <br />
-      Lorem ipsum dolor sit amet Tutaj pewnie będzie jakiś regulamin... <br />
-      Lorem ipsum dolor sit amet Tutaj pewnie będzie jakiś regulamin... <br />
-      Lorem ipsum dolor sit amet Tutaj pewnie będzie jakiś regulamin... <br />
-      Lorem ipsum dolor sit amet Tutaj pewnie będzie jakiś regulamin... <br />
-      Lorem ipsum dolor sit amet Tutaj pewnie będzie jakiś regulamin... <br />
-      Lorem ipsum dolor sit amet Tutaj pewnie będzie jakiś regulamin... <br />
-      Lorem ipsum dolor sit amet Tutaj pewnie będzie jakiś regulamin... <br />
-      Lorem ipsum dolor sit amet Tutaj pewnie będzie jakiś regulamin... <br />
-      Lorem ipsum dolor sit amet Tutaj pewnie będzie jakiś regulamin... <br />
-      Lorem ipsum dolor sit amet Tutaj pewnie będzie jakiś regulamin... <br />
-      Lorem ipsum dolor sit amet{' '}
-    </SectionDesc>
+    <SectionDesc>Regulamin serwisu.</SectionDesc>
   </MainTemplate>
 );
 
