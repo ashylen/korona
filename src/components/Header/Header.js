@@ -62,7 +62,7 @@ const Header = ({ isHomePage }) => {
   return (
     <StyledHeader>
       <Nav isHomePage={isHomePage} />
-      <StyledLink href={`tel:${phoneNumber}`}>
+      <StyledLink href={`tel:${phoneNumber}`} alt="Zadzwoń">
         <FontAwesomeIcon icon={faPhone} />
       </StyledLink>
     </StyledHeader>

@@ -136,7 +136,7 @@ const Footer = () => {
   return (
     <StyledFooter>
       <StyledWrapper>
-        <StyledGatsbyLink to="/">
+        <StyledGatsbyLink to="/" alt="Strona główna">
           <Logo />
         </StyledGatsbyLink>
         <StyledContactWrapper>
@@ -146,21 +146,33 @@ const Footer = () => {
           </StyledContent>
           <StyledContent>
             <StyledItemHeading>Telefon</StyledItemHeading>
-            <StyledLink href={`tel:${phoneNumber}`}>
+            <StyledLink href={`tel:${phoneNumber}`} alt="Zadzwoń">
               +48 {phoneNumber}
             </StyledLink>
           </StyledContent>
           <StyledContent>
             <StyledItemHeading>Email</StyledItemHeading>
-            <StyledLink href={`mailto:${email}`}>{email}</StyledLink>
+            <StyledLink href={`mailto:${email}`} alt="Napisz e-mail">
+              {email}
+            </StyledLink>
           </StyledContent>
           <StyledContent>
             <div>
-              <StyledLink icon href="https://goo.gl/maps/ng5NhnWPJ3upiuef8">
+              <StyledLink
+                icon
+                target="_blank"
+                linux
+                rel="noopener norefferer"
+                href="https://goo.gl/maps/ng5NhnWPJ3upiuef8"
+                alt="Instagram"
+              >
                 <FontAwesomeIcon icon={faInstagram} />
               </StyledLink>
               <StyledLink
                 icon
+                target="_blank"
+                rel="noopener norefferer"
+                alt="Facebook"
                 href="https://www.facebook.com/Pomoc-Drogowa-Korona-100327174801068/"
               >
                 <FontAwesomeIcon icon={faFacebookF} />
@@ -178,6 +190,7 @@ const Footer = () => {
               title="dominik.urban.mail@gmail.com"
               href="mailto:dominik.urban.mail@gmail.com"
               target="_blank"
+              alt="Developer e-mail"
               rel="noopener noreferrer"
             >
               Dominik Urban

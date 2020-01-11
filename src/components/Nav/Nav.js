@@ -161,21 +161,21 @@ const Nav = ({ isHomePage }) => {
       {/* <StyledSeparator /> */}
       <StyledInner>
         <StyledLogo>
-          <StyledLogoLink>
+          <StyledLogoLink alt="logo">
             <Logo />
           </StyledLogoLink>
         </StyledLogo>
         <StyledPages>
-          <StyledLink activeClassName="active" to="/">
+          <StyledLink activeClassName="active" to="/" alt="Strona główna">
             <FontAwesomeIcon icon={faHome} />
           </StyledLink>
-          <StyledLink activeClassName="active" to="/kontakt/">
+          <StyledLink activeClassName="active" to="/kontakt/" alt="Kontakt">
             Kontakt
           </StyledLink>
-          <StyledLink activeClassName="active" to="/oferta/">
+          <StyledLink activeClassName="active" to="/oferta/" alt="Oferta">
             Oferta
           </StyledLink>
-          <StyledLink activeClassName="active" to="/cennik/">
+          <StyledLink activeClassName="active" to="/cennik/" alt="Cennik">
             Cennik
           </StyledLink>
         </StyledPages>
