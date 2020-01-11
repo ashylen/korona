@@ -270,7 +270,12 @@ const IndexPage = () => {
               Pomoc drogowa <br /> Holowanie 24h <br /> Laweta
             </StyledH1>
             <StyledPhoneMain href={`tel:${phoneNumber}`}>
-              <FontAwesomeIcon icon={faPhone} /> <span>{phoneNumber}</span>
+              {window && window.innerWidth < 992 ? (
+                <FontAwesomeIcon style={{ fontSize: '10vw' }} icon={faPhone} />
+              ) : (
+                <FontAwesomeIcon icon={faPhone} />
+              )}{' '}
+              <span>{phoneNumber}</span>
             </StyledPhoneMain>
             <StyledH2>Miałeś wypadek? ZADZWOŃ!</StyledH2>
             {/* <Button>Kontakt</Button> */}
