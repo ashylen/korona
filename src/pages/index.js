@@ -92,6 +92,7 @@ const StyledSectionWrapper = styled.div`
   margin: auto;
   position: relative;
   z-index: 2;
+  opacity: 0;
 
   animation: ${fadeIn} 0.4s 0.8s both;
 
