@@ -2,8 +2,8 @@ import React from 'react';
 
 // Modules
 import styled from 'styled-components';
-import { useStaticQuery, graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 
 // Utils
 import { phoneNumber } from 'utils/constants';
@@ -12,26 +12,6 @@ import { phoneNumber } from 'utils/constants';
 import MainTemplate from 'templates/MainTemplate';
 import SEO from 'components/seo';
 import SectionTitle from 'components/simple/SectionTitle/SectionTitle';
-
-const PriceImage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(
-        relativePath: {
-          eq: "Korona-Pomoc-Drogowa-Auto-Laweta-Rzeszow-Lancut-Zolynia-Lezajsk.jpg"
-        }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
-
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />;
-};
 
 const StyledArticleWrapper = styled.article`
   max-width: 1440px;
@@ -45,12 +25,6 @@ const StyledSectionWrapper = styled.section`
   @media (max-width: 992px) {
     flex-wrap: wrap;
   }
-`;
-
-const StyledPriceImage = styled.div`
-  width: 30%;
-  overflow: hidden;
-  border-radius: 5px;
 `;
 
 const StyledTextSide = styled.article`
@@ -142,25 +116,21 @@ const StyledPhoneLink = styled.a`
   }
 `;
 
-const PricingPage = () => {
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
-
+const CityPageTemplate = ({ pageContext }) => {
   return (
     <MainTemplate>
-      <SEO title="Cennik" />
-      <SectionTitle>Cennik</SectionTitle>
+      <SEO title={`Pomoc drogowa w ${pageContext.city}`} />
+      <SectionTitle>
+        Pomoc drogowa w lokalizacji: {pageContext.city} i okolicach
+      </SectionTitle>
       <StyledArticleWrapper>
         <StyledSectionWrapper>
           <StyledTextSide>
             <p>
-              Ceny usług uzależnione są od kilku głównych czynników między
-              innymi: samochodu, rodzaju uszkodzenia, położenia, odległości,
-              możliwości wystąpienia nieprzewidzianych sytuacji podczas
-              wciągania samochodu na lawetę oraz czasu jaki jest potrzebny na
-              prawidłowe załadowanie i zabezpieczenie auta bądź innego towaru.
-              Mając na uwadze powyższe czynniki, cenę ustalamy indywidualnie,
-              dostosowując do potrzeb osób zamawiających holowanie lub przewóz
-              innych rzeczy.
+              Pomagamy na drodze nawet w {pageContext.city} i okolicach.
+              Priorytetem jest dla nas niesienie pomocy tam gdzie jej potrzebują
+              dlatego jeśli tylko pojawi się na Twojej drodze jakiś problem bądź
+              potrzeba to staniemy temu wyzwaniu naprzeciw.
             </p>
             <StyledPhoneLink href={`tel:${phoneNumber}`}>
               <span>Zadzwoń do nas</span>
@@ -170,15 +140,14 @@ const PricingPage = () => {
               <span>Przejdź do formularza kontaktowego</span>
             </StyledFormLink>
           </StyledTextSide>
-          {!isMobile && (
-            <StyledPriceImage>
-              <PriceImage />
-            </StyledPriceImage>
-          )}
         </StyledSectionWrapper>
       </StyledArticleWrapper>
     </MainTemplate>
   );
 };
 
-export default PricingPage;
+CityPageTemplate.propTypes = {
+  pageContext: PropTypes.objectOf(PropTypes.string.isRequired).isRequired,
+};
+
+export default CityPageTemplate;

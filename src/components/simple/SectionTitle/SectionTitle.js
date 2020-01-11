@@ -12,6 +12,7 @@ const StyledH1 = styled.h1`
   max-width: 1440px;
   position: relative;
   padding: 0 0 20px 0;
+  line-height: 1.2;
 
   &:after {
     content: '';
