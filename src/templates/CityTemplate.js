@@ -30,12 +30,8 @@ const StyledSectionWrapper = styled.section`
 const StyledTextSide = styled.article`
   line-height: 1.3;
   font-size: 1.8rem;
-  width: 70%;
-  padding-right: 20px;
-
-  @media (max-width: 992px) {
-    width: auto;
-  }
+  text-align: center;
+  margin: auto;
 `;
 
 const StyledFormLink = styled(props => <Link {...props} />)`
@@ -121,16 +117,16 @@ const CityPageTemplate = ({ pageContext }) => {
     <MainTemplate>
       <SEO title={`Pomoc drogowa w ${pageContext.city}`} />
       <SectionTitle>
-        Pomoc drogowa w lokalizacji: {pageContext.city} i okolicach
+        Pomoc drogowa w lokalizacji: {pageContext.city} i okolice
       </SectionTitle>
       <StyledArticleWrapper>
         <StyledSectionWrapper>
           <StyledTextSide>
             <p>
-              Pomagamy na drodze nawet w {pageContext.city} i okolicach.
-              Priorytetem jest dla nas niesienie pomocy tam gdzie jej potrzebują
-              dlatego jeśli tylko pojawi się na Twojej drodze jakiś problem bądź
-              potrzeba to staniemy temu wyzwaniu naprzeciw.
+              Pomagamy na drodze nawet w lokalizacji: {pageContext.city} i
+              okolice. Priorytetem jest dla nas niesienie pomocy tam gdzie jej
+              potrzebują dlatego jeśli tylko pojawi się na Twojej drodze jakiś
+              problem bądź potrzeba to staniemy temu wyzwaniu naprzeciw.
             </p>
             <StyledPhoneLink href={`tel:${phoneNumber}`}>
               <span>Zadzwoń do nas</span>
