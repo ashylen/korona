@@ -39,7 +39,7 @@ const handleSubmit = (values, { resetForm, setSubmitting }) => {
   setSubmitting(true);
   const formData = new FormData();
   formData.append('service_id', 'gmail');
-  formData.append('template_id', 'template_uNovYqTW');
+  formData.append('template_id', 'template_VHE8b0Ru');
   formData.append('user_id', 'user_4NvtMlo9dw816sW5SfxOV');
   const messageHtml = `Email: ${values.email} <br/>Imię: ${
     values.name
