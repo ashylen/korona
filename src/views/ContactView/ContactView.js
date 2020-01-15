@@ -211,7 +211,7 @@ const ContactView = () => (
     </StyledFormWrapper>
     <StyledMapWrapper>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyC4TPqQPvhA03ii7oYtBNltsc7JQI8urrg' }}
+        bootstrapURLKeys={{ key: 'AIzaSyDQsU1P1vzNUktmPtJIe3GEnOMpz18jVT8' }}
         defaultCenter={{ lat: 50.160065, lng: 22.298928 }}
         defaultZoom={11}
         onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
