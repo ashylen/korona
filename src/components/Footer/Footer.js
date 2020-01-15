@@ -173,7 +173,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener norefferer"
                 alt="Facebook"
-                href="https://www.facebook.com/Pomoc-Drogowa-Korona-100327174801068/"
+                href="https://www.facebook.com/koronapomocdrogowa"
               >
                 <FontAwesomeIcon icon={faFacebookF} />
               </StyledLink>
