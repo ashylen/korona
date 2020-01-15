@@ -110,6 +110,7 @@ const StyledLink = styled.a`
   transition: color 0.3s, transform 0.3s, opacity 0.3s;
   will-change: color;
   font-size: ${({ icon }) => (icon ? '4rem' : '2rem')};
+  word-break: break-word;
 
   &:hover {
     opacity: 0.7;
