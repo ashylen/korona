@@ -29,7 +29,7 @@ const renderMarkers = (map, maps) => {
     position: { lat: 50.160065, lng: 22.298928 },
     map,
     // icon: icons[features[i].type].icon,
-    title: 'Korona - Pomoc Drogowa - Przemysław Pac',
+    title: 'Korona - Pomoc Drogowa - Holowanie - Laweta 24/7 - Przemysław Pac',
   });
 
   return marker;

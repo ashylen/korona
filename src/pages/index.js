@@ -261,11 +261,9 @@ const IndexPage = () => {
     SectionRef.current.scrollIntoView({ block: 'start', behavior: 'smooth' });
   };
 
-  // const windowHack = typeof window !== 'undefined' ? window : null;
-
   return (
     <HomeTemplate>
-      <SEO title="Strona główna" />
+      <SEO title="Laweta | Holowanie 24/7" />
       <StyledTopWrapper>
         <HomeBackgroundImage>
           <StyledSkew />
@@ -276,15 +274,9 @@ const IndexPage = () => {
               Pomoc drogowa <br /> Holowanie 24h <br /> Laweta
             </StyledH1>
             <StyledPhoneMain href={`tel:${phoneNumber}`}>
-              {/* {windowHack && windowHack.innerWidth < 992 ? (
-                <FontAwesomeIcon style={{ fontSize: '10vw' }} icon={faPhone} />
-              ) : (
-                <FontAwesomeIcon icon={faPhone} />
-              )}{' '} */}
               <span>{phoneNumber}</span>
             </StyledPhoneMain>
             <StyledH2>Miałeś wypadek? ZADZWOŃ!</StyledH2>
-            {/* <Button>Kontakt</Button> */}
           </StyledSectionWrapper>
           <StyledScrollDown onClick={onScrollButtonClick}>
             <StyledIconScrollDown>

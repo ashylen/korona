@@ -10,6 +10,9 @@ import { faInstagram, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 // Utils
 import { phoneNumber, email } from 'utils/constants';
 
+// Components
+import HelpfulLinks from 'views/HelpfulLinks';
+
 const StyledFooter = styled.footer`
   background-color: #222;
   color: #fff;
@@ -135,73 +138,79 @@ const StyledContactWrapper = styled.div`
 
 const Footer = () => {
   return (
-    <StyledFooter>
-      <StyledWrapper>
-        <StyledGatsbyLink to="/" alt="Strona główna">
-          <Logo />
-        </StyledGatsbyLink>
-        <StyledContactWrapper>
-          <StyledContent>
-            <StyledItemHeading>Adres</StyledItemHeading>
-            <StyledItem>Mickiewicza 7, 37-110 Żołynia</StyledItem>
-          </StyledContent>
-          <StyledContent>
-            <StyledItemHeading>Telefon</StyledItemHeading>
-            <StyledLink href={`tel:${phoneNumber}`} alt="Zadzwoń">
-              +48 {phoneNumber}
-            </StyledLink>
-          </StyledContent>
-          <StyledContent>
-            <StyledItemHeading>Email</StyledItemHeading>
-            <StyledLink href={`mailto:${email}`} alt="Napisz e-mail">
-              {email}
-            </StyledLink>
-          </StyledContent>
-          <StyledContent>
-            <div>
-              <StyledLink
-                icon
-                target="_blank"
-                linux
-                rel="noopener norefferer"
-                href="https://goo.gl/maps/ng5NhnWPJ3upiuef8"
-                alt="Instagram"
-              >
-                <FontAwesomeIcon icon={faInstagram} />
+    <>
+      <HelpfulLinks />
+      <StyledFooter>
+        <StyledWrapper>
+          <StyledGatsbyLink to="/" alt="Strona główna">
+            <Logo />
+          </StyledGatsbyLink>
+          <StyledContactWrapper>
+            <StyledContent>
+              <StyledItemHeading>Adres</StyledItemHeading>
+              <StyledItem>Mickiewicza 7, 37-110 Żołynia</StyledItem>
+            </StyledContent>
+            <StyledContent>
+              <StyledItemHeading>Telefon</StyledItemHeading>
+              <StyledLink href={`tel:${phoneNumber}`} alt="Zadzwoń">
+                +48 {phoneNumber}
               </StyledLink>
-              <StyledLink
-                icon
-                target="_blank"
-                rel="noopener norefferer"
-                alt="Facebook"
-                href="https://www.facebook.com/koronapomocdrogowa"
-              >
-                <FontAwesomeIcon icon={faFacebookF} />
+            </StyledContent>
+            <StyledContent>
+              <StyledItemHeading>Email</StyledItemHeading>
+              <StyledLink href={`mailto:${email}`} alt="Napisz e-mail">
+                {email}
               </StyledLink>
-            </div>
-          </StyledContent>
-        </StyledContactWrapper>
+            </StyledContent>
+            <StyledContent>
+              <div>
+                <StyledLink
+                  icon
+                  target="_blank"
+                  linux
+                  rel="noopener norefferer"
+                  href="https://goo.gl/maps/ng5NhnWPJ3upiuef8"
+                  alt="Instagram"
+                >
+                  <FontAwesomeIcon icon={faInstagram} />
+                </StyledLink>
+                <StyledLink
+                  icon
+                  target="_blank"
+                  rel="noopener norefferer"
+                  alt="Facebook"
+                  href="https://www.facebook.com/koronapomocdrogowa"
+                >
+                  <FontAwesomeIcon icon={faFacebookF} />
+                </StyledLink>
+              </div>
+            </StyledContent>
+          </StyledContactWrapper>
 
-        <StyledCopy>
-          <div>© Korona - Pomoc Drogowa - Przemysław Pac</div>
-          <br />
-          <div>
-            Wykonanie strony:{' '}
-            <StyledEmail
-              title="dominik.urban.mail@gmail.com"
-              href="mailto:dominik.urban.mail@gmail.com"
-              target="_blank"
-              alt="Developer e-mail"
-              rel="noopener noreferrer"
-            >
-              Dominik Urban
-            </StyledEmail>
-          </div>
-          <br />
-          <div>{new Date().getFullYear()}</div>
-        </StyledCopy>
-      </StyledWrapper>
-    </StyledFooter>
+          <StyledCopy>
+            <div>
+              © Korona - Pomoc Drogowa - Laweta 24/7 - Holowanie - Przemysław
+              Pac
+            </div>
+            <br />
+            <div>
+              Wykonanie strony:{' '}
+              <StyledEmail
+                title="dominik.urban.mail@gmail.com"
+                href="mailto:dominik.urban.mail@gmail.com"
+                target="_blank"
+                alt="Developer e-mail"
+                rel="noopener noreferrer"
+              >
+                Dominik Urban
+              </StyledEmail>
+            </div>
+            <br />
+            <div>{new Date().getFullYear()}</div>
+          </StyledCopy>
+        </StyledWrapper>
+      </StyledFooter>
+    </>
   );
 };
 

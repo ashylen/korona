@@ -47,6 +47,15 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
+          name: `google-site-verification`,
+          content: 'Z5YJbs3DvbaMqeMgtgIT2oBN80SDDHG8LT5T9uqCAY4',
+        },
+        {
+          name: `keywords`,
+          content:
+            'laweta, pomoc drogowa, 24/7, laweta 24/7, holowanie, laweta w zolyni, laweta przeworsk, laweta lezajsk, laweta lancut, laweta rzeszow, podkarpackie, dowoz paliwa',
+        },
+        {
           property: `og:title`,
           content: title,
         },

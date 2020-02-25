@@ -5,6 +5,7 @@ exports.createPages = async function({ actions }) {
     'Leżajsk',
     'Rzeszów',
     'Jarosław',
+    'Przeworsk',
     'Autostrada A4',
   ];
   const dataNamesClear = [
@@ -13,6 +14,7 @@ exports.createPages = async function({ actions }) {
     'lezajsk',
     'rzeszow',
     'jaroslaw',
+    'przeworsk',
     'autostrada-a4',
   ];
 
@@ -20,6 +22,14 @@ exports.createPages = async function({ actions }) {
     actions.createPage({
       path: `pomoc-drogowa-${city}`,
       component: require.resolve(`./src/templates/CityTemplate.js`),
+      context: { city: dataNames[key] },
+    });
+  });
+
+  dataNamesClear.forEach((city, key) => {
+    actions.createPage({
+      path: `${city}`,
+      component: require.resolve(`./src/templates/CityOnlyTemplate.js`),
       context: { city: dataNames[key] },
     });
   });
