@@ -20,6 +20,7 @@ import { phoneNumber } from 'utils/constants';
 import HomeBackgroundImage from 'components/simple/BackgroundImage/BackgroundImage';
 import HomeTemplate from 'templates/HomeTemplate';
 import ContactBannerView from 'views/ContactBannerView';
+import AboutUsView from 'views/AboutUsView';
 import SEO from 'components/seo';
 
 const slideIn = keyframes`
@@ -139,36 +140,15 @@ const StyledSkewSecond = styled.div`
   bottom: 0;
   left: 0;
 
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
   transform-origin: 100% 100%;
   transform: rotate(-31deg);
   height: 1000%;
-  right: 0%;
+  right: -35%;
   z-index: 1;
 
   @media (min-width: 992px) {
     animation: ${slideIn} 1s 0.2s;
-  }
-
-  @media (max-width: 992px) {
-    display: none;
-  }
-`;
-
-const StyledSkewThird = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
-  background: rgba(0, 0, 0, 0.4);
-  transform-origin: 100% 100%;
-  transform: rotate(-31deg);
-  height: 1000%;
-  right: -50%;
-  z-index: 1;
-
-  @media (min-width: 992px) {
-    animation: ${slideIn} 1s 0.4s;
   }
 
   @media (max-width: 992px) {
@@ -268,10 +248,9 @@ const IndexPage = () => {
         <HomeBackgroundImage>
           <StyledSkew />
           <StyledSkewSecond />
-          <StyledSkewThird />
           <StyledSectionWrapper>
             <StyledH1>
-              Pomoc drogowa <br /> Holowanie 24h <br /> Laweta
+              Laweta <br /> Holowanie 24/7 <br /> Pomoc drogowa
             </StyledH1>
             <StyledPhoneMain href={`tel:${phoneNumber}`}>
               <span>{phoneNumber}</span>
@@ -285,6 +264,7 @@ const IndexPage = () => {
           </StyledScrollDown>
         </HomeBackgroundImage>
       </StyledTopWrapper>
+      <AboutUsView />
       <StyledSectionInfo ref={SectionRef}>
         <StyledBox>
           <StyledBoxIcon>

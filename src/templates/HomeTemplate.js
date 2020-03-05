@@ -5,12 +5,9 @@ import PropTypes from 'prop-types';
 import styled, { createGlobalStyle, keyframes } from 'styled-components';
 import { Reset } from 'styled-reset';
 
-// Utils
-
 // Components
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
-import SEO from 'components/seo';
 
 const StyledWrapper = styled.div`
   margin-top: 50px;
@@ -62,7 +59,6 @@ const GlobalStyle = createGlobalStyle`
 const MainTemplate = ({ children, isHomePage }) => {
   return (
     <StyledWrapper>
-      <SEO />
       <Reset />
       <GlobalStyle />
       <Header isHomePage={isHomePage} />

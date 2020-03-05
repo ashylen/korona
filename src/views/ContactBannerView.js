@@ -69,7 +69,7 @@ const StyledFormLink = styled(props => <Link {...props} />)`
   }
 `;
 
-const ContactView = () => (
+const ContactBannerView = () => (
   <StyledSectionContact>
     <StyledContactInner>
       <StyledH2>Potrzebujesz pomocy w innej sprawie?</StyledH2>
@@ -80,4 +80,4 @@ const ContactView = () => (
   </StyledSectionContact>
 );
 
-export default ContactView;
+export default ContactBannerView;
