@@ -243,7 +243,10 @@ const IndexPage = () => {
 
   return (
     <HomeTemplate>
-      <SEO title="Laweta | Holowanie 24/7" />
+      <SEO
+        isHome
+        title="Pomoc Drogowa Korona • Laweta 24/7 • Holowanie • Pomoc drogowa Łańcut, pomoc drogowa Przeworsk, pomoc drogowa Leżajsk"
+      />
       <StyledTopWrapper>
         <HomeBackgroundImage>
           <StyledSkew />
