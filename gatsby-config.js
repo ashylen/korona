@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: `🚨 Pomoc Drogowa 👑 Korona - Laweta 24/7 Holowanie Łańcut, Przeworsk, Leżajsk`,
+    title: `Pomoc Drogowa Korona • Laweta 24/7 • Holowanie • Pomoc drogowa Łańcut, pomoc drogowa Przeworsk, pomoc drogowa Leżajsk`,
     description: `Pomoc drogowa - ZADZWOŃ - 570 376 349 - holowanie, laweta 24/7, dowóz paliwa w takich miastach jak Rzeszów, Łańcut, Przeworsk, Leżajsk, Żołynia, Jarosław.`,
     author: `@ashylen`,
   },
